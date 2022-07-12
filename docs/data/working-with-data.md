@@ -59,4 +59,4 @@ Options:
 
 ## Programmatic usage
 
-See [developer docs](../code) for documentation of the relevant python classes
+See [developer docs](../code.rst) for documentation of the relevant python classes

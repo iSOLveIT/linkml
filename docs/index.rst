@@ -20,7 +20,7 @@ Documentation
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: CONTENTS:
 
    intro/overview
    intro/install
@@ -45,11 +45,10 @@ repository. Each element of the model has a URI of the form
 The key schema elements are:
 
 - `linkml:SchemaDefinition <https://w3id.org/linkml/SchemaDefinition>`_
-  
-    - `linkml:ClassDefinition <https://w3id.org/linkml/ClassDefinition>`_
-    - `linkml:SlotDefinition <https://w3id.org/linkml/SlotDefinition>`_
-    - `linkml:TypeDefinition <https://w3id.org/linkml/TypeDefinition>`_
-    - `linkml:EnumDefinition <https://w3id.org/linkml/EnumDefinition>`_
+   - `linkml:ClassDefinition <https://w3id.org/linkml/ClassDefinition>`_
+   - `linkml:SlotDefinition <https://w3id.org/linkml/SlotDefinition>`_
+   - `linkml:TypeDefinition <https://w3id.org/linkml/TypeDefinition>`_
+   - `linkml:EnumDefinition <https://w3id.org/linkml/EnumDefinition>`_
 
 Developers
 ----------------
@@ -60,7 +59,7 @@ for you:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Developers guide:
+   :caption: DEVELOPERS GUIDE:
 
    developers/index
    code

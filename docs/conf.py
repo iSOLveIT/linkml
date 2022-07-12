@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'linkml'
+project = 'LinkML'
 copyright = '2021, LinkML Authors'
 author = 'LinkML Authors'
 
@@ -32,7 +32,9 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.githubpages',
     'sphinx.ext.autosectionlabel',
-    'sphinx_rtd_theme',
+    "sphinx_copybutton",
+    "sphinx_design",
+    "sphinx_immaterial",
     'sphinx_click',
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
@@ -60,15 +62,59 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
-html_theme = 'sphinx_rtd_theme'
-html_logo = 'https://linkml.io/uploads/linkml-logo_color.png'
+html_logo = '_static/media/linkml-logo_color.png'
+html_favicon = '_static/media/onto-favicon.svg'
+html_title = "LinkML Documentation"
+
+html_theme = 'sphinx_immaterial'
+# html_logo = 'https://linkml.io/uploads/linkml-logo_color.png'
+
+# material theme options (see theme.conf for more information)
+html_theme_options = {
+    "icon": {
+        "repo": "fontawesome/brands/github-square",
+    },
+    "site_url": "https://isolveit.github.io/linkml/",
+    "repo_url": "https://github.com/linkml/linkml/",
+    "repo_name": "LinkML",
+    "repo_type": "github",
+    "edit_uri": "blob/main/docs/",
+    "globaltoc_collapse": True,
+    "features": [
+        "navigation.top",
+        "search.share",
+    ],
+    "palette": [
+        {
+            "media": "(prefers-color-scheme: light)",
+            "scheme": "default",
+            "primary": "blue",
+            "accent": "teal",
+            "toggle": {
+                "icon": "material/weather-night",
+                "name": "Switch to dark mode",
+            },
+        },
+        {
+            "media": "(prefers-color-scheme: dark)",
+            "scheme": "slate",
+            "primary": "blue",
+            "accent": "teal",
+            "toggle": {
+                "icon": "material/weather-sunny",
+                "name": "Switch to light mode",
+            },
+        },
+    ],
+    "toc_title_is_page_title": True,
+}
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = ["custom.css"]
 
 
 # Options for the linkcheck builder

@@ -1,0 +1,5 @@
+Sphinx
+sphinx-copybutton
+sphinx_design
+sphinx-immaterial==0.8.0
+linkml

@@ -1,0 +1,135 @@
+@import url('./fonts-core.css');
+
+:root {
+  /*--md-admonition-icon--pitfall: url('./media/warn.svg');*/
+}
+
+body,
+input {
+    font-family: Recursive-2019, NotoSerif;
+    --CASL: 1;
+    --slnt: 0;
+    --MONO: 0;
+    font-feature-settings: "ss01" on, "ss02" on, "ss08" on;
+    border: none;
+    transition: 1s;
+    font-size: 16px !important;
+    font-weight: 400;
+    line-height: 1.5 !important;
+}
+/*
+[data-md-color-scheme=default] {
+    --cite-text-color: #000;
+}
+
+[data-md-color-scheme=slate] {
+    --img-filter: brightness(0) invert(1);
+}
+*/
+.md-typeset, .md-nav, .md-typeset table:not([class]) {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: ZillaSlab;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+    font-weight: 800;
+    --CRSV: 0;
+    transition: 1s;
+}
+
+h1 {
+    font-size: 44px !important;
+    margin-bottom: 20px !important;
+}
+
+h2 {
+    font-size: 30px !important;
+    margin-bottom: 10px !important;
+}
+
+h3 {
+    font-size: 24px !important;
+    margin-bottom: 10px !important;
+}
+
+.underline {
+    text-decoration: underline;
+}
+.md-typeset code {
+    padding: 0.2em 0.4em!important;
+    border-radius: 0.3rem!important;
+}
+
+.md-typeset pre {
+    border-radius: .3rem!important;
+    padding: 10px!important;
+    overflow-x: auto!important;
+    margin: auto!important;
+}
+
+.md-tabs {
+    display: none!important;
+}
+/*
+.md-header-nav__button.md-logo{
+    margin: 0.1rem 0.2rem!important;
+    background-color: #fff!important;
+}
+html .md-nav--primary .md-nav__title--site .md-nav__button {
+    width: 8.5rem !important;
+    background-color: #fff!important;
+}
+*/
+.md-header, .md-tabs{
+    background: #1F64FF !important;
+}
+@media only screen and (max-width: 76.1875em){
+    nav > label.md-nav__title.md-nav__title--site{
+        background: #1F64FF !important;
+    }
+}
+
+.centered {
+    text-align: center;
+}
+
+.md-typeset figcaption {
+    max-width: initial!important;
+}
+/*cite {
+    background-color: #ffff00!important;
+    color:#000!important;
+}*/
+
+/* Begin Custom Admonitions */
+
+/*Warning*/
+/*
+.md-typeset .admonition.pitfall {
+  border-color: rgb(255, 145, 0);
+}
+
+.md-typeset .pitfall>.admonition-title {
+  background-color: rgba(255, 145, 0, 0.1);
+  border-color: rgb(255, 145, 0);
+}
+
+.md-typeset .pitfall>.admonition-title::before {
+  background-color: rgb(255, 145, 0);
+  -webkit-mask-image: var(--md-admonition-icon--pitfall);
+  mask-image: var(--md-admonition-icon--pitfall);
+}
+*/
+
+/* End Custom Admonitions */
+
+h1#linked-data-patterns {
+	display: none;
+}

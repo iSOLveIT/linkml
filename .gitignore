@@ -1,18 +1,4 @@
-metamodel/metamodel.py-PREV
-temp/
-output/
-
-# sphinx
-docs/_sources
-docs/_modules
-docs/_images
-sphinx/_build/
-sphinx/source/
-
-# Jekyll
-Gemfile.lock
-_site
-
+### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -23,7 +9,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -35,9 +20,12 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -52,60 +40,101 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+.nox/
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
-*,cover
+*.cover
+*.py,cover
 .hypothesis/
+.pytest_cache/
+cover/
 
 # Translations
 *.mo
 *.pot
 
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
 # Flask stuff:
 instance/
 .webassets-cache
 
-# pyenv
-.python-version
+# Scrapy stuff:
+.scrapy
 
-# dotenv
-.env
+# Sphinx documentation
+docs/_build/
 
-# virtualenv
-.venv
-venv/
-ENV/
+# PyBuilder
+.pybuilder/
+target/
 
-# Editors
-.idea/
-
-# old stuff
-*.old
-
-# Jupyter
+# Jupyter Notebook
 .ipynb_checkpoints
 
-# Eclipse
-.project
-.classpath
+# IPython
+profile_default/
+ipython_config.py
 
-# make artifacts
-*-PREV
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
 
-# Apple stuff
-.DS_Store
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
 
-# Graphviz out is varied enough it isn't worth carrying this for test cases
-tests/test_biolink_model/source/graphviz/
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
 
-# Test config
-tests/test_config.ini
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
 
-# Don't lock
-Pipfile.lock
+# SageMath parsed files
+*.sage.py
 
-# User defined
-.vscode/*
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.idea
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
