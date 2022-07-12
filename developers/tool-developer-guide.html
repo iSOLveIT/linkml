@@ -1,0 +1,1276 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../_static/onto-favicon.svg">
+    
+    
+      
+        <title>Tool Implementor Guide - LinkML Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../_static/stylesheets/main.2014a6d7.min.css">
+      
+        
+        <link rel="stylesheet" href="../_static/stylesheets/palette.92c9fe4a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+        <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+        <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#general-considerations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="LinkML Documentation" class="md-header__button md-logo" aria-label="LinkML Documentation" data-md-component="logo">
+      <img src="../_static/linkml-logo_color.png" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LinkML Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tool Implementor Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/linkml/linkml/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LinkML
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="LinkML Documentation" class="md-nav__button md-logo" aria-label="LinkML Documentation" data-md-component="logo">
+      <img src="../_static/linkml-logo_color.png" alt="logo">
+    </a>
+    LinkML Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/linkml/linkml/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LinkML
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          <span class="md-ellipsis">CONTENTS:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CONTENTS:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">CONTENTS:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/overview.html" class="md-nav__link">
+        <span title="intro/overview (document)" class="md-ellipsis">Link<wbr>ML at a glance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/install.html" class="md-nav__link">
+        <span title="intro/install (document)" class="md-ellipsis">Quick Install Guide</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/tutorial.html" class="md-nav__link">
+        <span title="intro/tutorial (document)" class="md-ellipsis">Tutorial</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/index.html" class="md-nav__link">
+        <span title="schemas/index (document)" class="md-ellipsis">Link<wbr>ML Schemas</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/index.html" class="md-nav__link">
+        <span title="data/index (document)" class="md-ellipsis">Working with Data</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generators/index.html" class="md-nav__link">
+        <span title="generators/index (document)" class="md-ellipsis">Generators</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples.html" class="md-nav__link">
+        <span title="examples (document)" class="md-ellipsis">Examples of use</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecosystem.html" class="md-nav__link">
+        <span title="ecosystem (document)" class="md-ellipsis">The Link<wbr>ML Ecosystem</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../specifications/linkml-spec.html" class="md-nav__link">
+        <span title="specifications/linkml-spec (document)" class="md-ellipsis">Link<wbr>ML specification</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/contributing.html" class="md-nav__link">
+        <span title="contributing/contributing (document)" class="md-ellipsis">Contribution Guidelines</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/index.html" class="md-nav__link">
+        <span title="faq/index (document)" class="md-ellipsis">FAQ</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          <span class="md-ellipsis">DEVELOPERS GUIDE:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DEVELOPERS GUIDE:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">DEVELOPERS GUIDE:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html"><span title="developers/index (document)" class="md-ellipsis">Developers guide</span></a>
+          
+            <label for="__nav_2_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Developers guide" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span title="developers/index (document)" class="md-ellipsis">Developers guide</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="organization.html" class="md-nav__link">
+        <span title="developers/organization (document)" class="md-ellipsis">Git<wbr>Hub Organization</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="notebooks.html" class="md-nav__link">
+        <span title="developers/notebooks (document)" class="md-ellipsis">Jupyter Notebooks</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manipulating-schemas.html" class="md-nav__link">
+        <span title="developers/manipulating-schemas (document)" class="md-ellipsis">Manipulating Schemas</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="loaders-and-dumpers.html" class="md-nav__link">
+        <span title="developers/loaders-and-dumpers (document)" class="md-ellipsis">Data Convetsion:<wbr> Loaders and Dumpers</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="using-sql-dbs.html" class="md-nav__link">
+        <span title="developers/using-sql-dbs (document)" class="md-ellipsis">Using SQL Databases</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span title="developers/tool-developer-guide (document)" class="md-ellipsis">Tool Implementor Guide</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        <span title="developers/tool-developer-guide (document)" class="md-ellipsis">Tool Implementor Guide</span>
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      <span title="developers/tool-developer-guide (document)" class="md-ellipsis">Tool Implementor Guide</span>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-considerations" class="md-nav__link">
+    <span title="developers/tool-developer-guide:general considerations (reference label)" class="md-ellipsis">General Considerations</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-conformance-levels" class="md-nav__link">
+    <span title="developers/tool-developer-guide:schema conformance levels (reference label)" class="md-ellipsis">Schema Conformance Levels</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-languages" class="md-nav__link">
+    <span title="developers/tool-developer-guide:other languages (reference label)" class="md-ellipsis">Other Languages</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Languages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#materializing-imports-and-inferences" class="md-nav__link">
+    <span title="developers/tool-developer-guide:materializing imports and inferences (reference label)" class="md-ellipsis">Materializing imports and inferences</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-guidelines-for-applications" class="md-nav__link">
+    <span title="developers/tool-developer-guide:general guidelines for applications (reference label)" class="md-ellipsis">General Guidelines for applications</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-and-application-hints" class="md-nav__link">
+    <span title="developers/tool-developer-guide:customizing and application hints (reference label)" class="md-ellipsis">Customizing and application hints</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-other-frameworks" class="md-nav__link">
+    <span title="developers/tool-developer-guide:using other frameworks (reference label)" class="md-ellipsis">Using other frameworks</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing-code.html" class="md-nav__link">
+        <span title="developers/contributing-code (document)" class="md-ellipsis">Contributing Code</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code.html" class="md-nav__link">
+        <span title="code (document)" class="md-ellipsis">Code</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      <span title="developers/tool-developer-guide (document)" class="md-ellipsis">Tool Implementor Guide</span>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-considerations" class="md-nav__link">
+    <span title="developers/tool-developer-guide:general considerations (reference label)" class="md-ellipsis">General Considerations</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-conformance-levels" class="md-nav__link">
+    <span title="developers/tool-developer-guide:schema conformance levels (reference label)" class="md-ellipsis">Schema Conformance Levels</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-languages" class="md-nav__link">
+    <span title="developers/tool-developer-guide:other languages (reference label)" class="md-ellipsis">Other Languages</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Languages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#materializing-imports-and-inferences" class="md-nav__link">
+    <span title="developers/tool-developer-guide:materializing imports and inferences (reference label)" class="md-ellipsis">Materializing imports and inferences</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-guidelines-for-applications" class="md-nav__link">
+    <span title="developers/tool-developer-guide:general guidelines for applications (reference label)" class="md-ellipsis">General Guidelines for applications</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-and-application-hints" class="md-nav__link">
+    <span title="developers/tool-developer-guide:customizing and application hints (reference label)" class="md-ellipsis">Customizing and application hints</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-other-frameworks" class="md-nav__link">
+    <span title="developers/tool-developer-guide:using other frameworks (reference label)" class="md-ellipsis">Using other frameworks</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset" role="main">
+                
+  <a href="https://github.com/linkml/linkml/blob/main/docs/developers/tool-developer-guide.rst" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1 id="tool-implementor-guide">Tool Implementor Guide<a class="headerlink" href="#tool-implementor-guide" title="Permalink to this heading">¶</a></h1>
+<p>This guide is for developers of <em>generic</em> LinkML tools that operate
+over the linkml metamodel, for example:</p>
+<ul class="simple">
+<li><p>Generic Web-based data submission tools driven by a LinkML schema</p></li>
+<li><p>Tools that produce or modify LinkML schemas</p></li>
+<li><p>Tools that analyze schemas or align schemas or schema elements</p></li>
+<li><p>Tools that auto-genete APIs from schemas</p></li>
+<li><p>Generic faceted data browsers that flexibly operate over multiple
+schemas (see   <a class="reference external" href="https://docs.google.com/document/d/1jOLRF_doeSomVxZD5H8Ig_WujQ-2sNxhvWBmojZos3o/edit">this draft</a></p></li>
+<li><p>Schema editors for LinkML itself</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide is <em>not</em> intended for developers of <em>specific</em>
+applications that are built for any one particular
+schema. For example, if I am building an application geared
+towards entering phenotypic data about patients then I may
+want to build that application around a schema for
+patients. In this case, my application isn’t intended to
+work with other schemas, and hence does not need to know
+anything about the linkml metamodel.</p>
+</div>
+<p>An example of a generic-schema driven editing application is json-editor
+<a class="reference external" href="https://github.com/json-editor/json-editor">https://github.com/json-editor/json-editor</a>, which provides a way
+to create instance data for an arbitrary JSON-Schema.</p>
+<p>[react-jsonschema-form](<a class="reference external" href="https://rjsf-team.github.io/react-jsonschema-form/">https://rjsf-team.github.io/react-jsonschema-form/</a>)
+is based on the same idea.</p>
+<p>Another example is <a class="reference external" href="https://github.com/cidgoh/DataHarmonizer">DataHarmonizer</a> which provides a
+spreadsheet-like data entry interface for any “flat” LinkML schema.</p>
+<h2 id="general-considerations">General Considerations<a class="headerlink" href="#general-considerations" title="Permalink to this heading">¶</a></h2>
+<p>Any generic LinkML application will be driven by a LinkML <em>model</em>
+(schema), which itself conforms to the <a class="reference external" href="https://w3id.org/linkml">LinkML metamodel</a>. It follows that these applications will
+itself need to conform to that model.</p>
+<p>One challenge is that the LinkML metamodel includes many different
+features, not all of which may be required for a particular
+application. See the section on Schema Conformance Levels for guidance
+here, as this will help you target your application to a particular
+profile.</p>
+<p>Another challenge is working with schemas themselves. The native
+syntax for LinkML is YAML, and YAML parsers are provided with all
+major languages. However, you will likely need to do more than parse
+the model. There is a lot of “business logic” associated with a
+model. For example, the rules that govern
+<span class="xref std std-doc">inheritance and refinement of slots</span>.</p>
+<p>For Python applications, the SchemaView library provides this business
+logic, but currently this logic must be re-implemented for different
+languages. This may be a concern if you are building web applications
+in JavaScript. The section on Working with Other Languages addresses
+this.</p>
+<p>Another challenge with building generic applications is making these
+configurable at the schema level for different domains. The section on
+customization and application hints deals with this.</p>
+<p>Finally, you may wish to target a different framework than LinkML
+itself. For semantic web applications, ShEx or SHACL may be a good
+choice to build applications from. One advantage of LinkML is that you
+can author in LinkML and compile to these other frameworks. But there
+are trade-offs here. See the section on Other Frameworks.</p>
+<h2 id="schema-conformance-levels">Schema Conformance Levels<a class="headerlink" href="#schema-conformance-levels" title="Permalink to this heading">¶</a></h2>
+<p>LinkML is a rich language supporting extensible types, inheritance,
+use of Linked Data IRIs, ontological enums, imports, rules, boolean
+constructs. It can be daunting to consider building a tool that
+supports all of this. Thankfully this is not necessary.</p>
+<p>We are including support for the notion of “conformance levels” or
+“profiles” to LinkML. This will allow applications to clearly state
+what parts of the specification are supported, and for people
+deploying the application to adapt accordingly.</p>
+<dl class="simple">
+<dt>.note:: An example use case is a simple questionnaire UI/application that is</dt><dd><p>driven by a LinkML schema, where each question is a slot and
+each answer either free text or in the case of multiple
+choice, an enum. There is no need for inheritance in this
+case, so the application only needs to pay attention to
+elements in the schema such as <cite>slots</cite> and
+<cite>permissible_values</cite>.</p>
+</dd>
+</dl>
+<p>Currently specific conformance levels in LinkML have not been defined,
+but current thinking is to have different categories:</p>
+<ul>
+<li><p>A <em>structural</em> conformance level that pertains to logical parts of
+the schema</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The minimal level would include <cite>classes</cite>, <cite>attributes</cite>, <cite>range</cite>
+and basic builtin types, as well as cardinalities</p></li>
+<li><p>The next level would include class inheritance and slots, and
+basic enums</p></li>
+<li><p>The level above this would include slot inheritance, and slot
+overrides with <cite>slot_usage</cite></p></li>
+<li><p>The highest level would include boolean expressions and rules</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>A <em>metadata</em> conformance level that pertains to informational
+aspects of the schema that do not drive validation or inference</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>minimal metadata would include metaslots for <cite>description</cite>,
+<cite>comments</cite></p></li>
+<li><p>above this, a minimal semantic level would include class and
+slot uris, and mappings</p></li>
+<li><p>the full level would include all possible metaslots</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>The LinkML framework provides some functionality for being able to do
+transformations “down” levels. For example, a rich schema that uses
+inheritance and <cite>slot_usage</cite> can be “rolled down” to a schema that
+includes only leaf elements, with inferred slots materialized as
+attributes. The resulting schema will be less rich, but may be
+sufficient for certain kinds of applications.</p>
+<p>See the YAML Generator for one such tool.</p>
+<h2 id="other-languages">Other Languages<a class="headerlink" href="#other-languages" title="Permalink to this heading">¶</a></h2>
+<p>LinkML is programming language neutral. However, currently much of the
+stack for introspecting schemas is written in Python.</p>
+<p>For example, in Python, if you want a list of slots for that class you can use <span class="xref std std-ref">class_slots</span>. But
+what if you are building a generic JavaScript data entry widget that
+will work for any LinkML class?</p>
+<p>There are a few broad approaches here:</p>
+<ul class="simple">
+<li><p>1. Use the direct output of your language’s YAML/JSON parser, and
+implement logic ad-hoc</p></li>
+<li><p>2. Develop a full blown analog of the Python SchemaView class for
+your language</p></li>
+<li><p>3. Write Python code to transform LinkML YAML into a native form
+geared for your application</p></li>
+</ul>
+<p>The first approach may be easiest, but we would only recommend this
+for simple schemas (low structural conformance – see above).</p>
+<p>If you are interested in approach 2, please make an issue on our
+GitHub repo so we can coordinate! We may have suggestions for general
+strategies for bootstrapping. And we may already have prototype
+implementations for your language.</p>
+<p>For example, we have a prototype Java code generator that can create
+Java classes for any LinkML model. The LinkML metamodel is in LinkML,
+so this can be used to make a Java object model for LinkML itself,
+which can help bootstrap efforts to make domain logical libraries.</p>
+<h3 id="materializing-imports-and-inferences">Materializing imports and inferences<a class="headerlink" href="#materializing-imports-and-inferences" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference external" href="../generators/linkml.html">linkml generator</a> can be used to
+materialize imports closure and to materialize inferred/induced slots
+as attributes. This frees the client logic from needing to implement
+this logic locally.</p>
+<h2 id="general-guidelines-for-applications">General Guidelines for applications<a class="headerlink" href="#general-guidelines-for-applications" title="Permalink to this heading">¶</a></h2>
+<p>These guidelines apply to how applications should use elements of the
+LinkML metamodel.</p>
+<ul class="simple">
+<li><p>Applications should use <a class="reference external" href="https://w3id.org/linkml/">title</a> to
+obtain the user-friendly name for a slot. For example a
+spreadsheet-like data entry tool should display these as column
+headers</p></li>
+<li><p>If <cite>title</cite> field is not available, use the <cite>name</cite> slot</p></li>
+<li><p>The <a class="reference external" href="https://w3id.org/linkml/description">description</a> slot should
+be used to provide information to users, e.g. as tool-tips</p></li>
+<li><p>The <a class="reference external" href="https://w3id.org/linkml/pattern">pattern</a> slot should be used
+to constrain values entered by the user</p></li>
+<li><p>The <a class="reference external" href="https://w3id.org/linkml/required">required</a> slot should be used
+to indicate to users if a field is not filled in. Applications MAY
+choose to still allow such data to be saved, e.g. if the user is in
+an intermediate state</p></li>
+<li><p>The <a class="reference external" href="https://w3id.org/linkml/multivalued">multivalued</a> slot should
+be used to indicate whether data should be inputted or displayed as
+a list/set</p></li>
+<li><p>The <a class="reference external" href="https://w3id.org/linkml/range">range</a> slot should
+be used to constrain values for a slot. The application should also
+apply relevant logic to this calculation depending on conformance
+level supported.</p></li>
+<li><p>The URI of a construct may be used to provide links for a user to
+find more information in an element. For example, in a data entry
+form a column may have a hyperlink to complete documentation on that
+data dictionary element</p></li>
+<li><p>An application may use the primary URI of a concept or its mappings
+to look up semantics for the type and behave appropriately (see
+examples with geolocation below)</p></li>
+<li><p>Minimally, data entry applications should treat enums as dropdowns
+or radio-button selectors</p></li>
+<li><p>In a data entry application, a slot that is multivalued and has a
+range of an enum may be implemented as a multi-select.</p></li>
+<li><p>Enums that take exactly two possible permissible values may be
+displayed as toggles</p></li>
+<li><p>Applications may choose to use standard ontology browsers such as
+OLS or BioPortal, or standard query endpoints to obtain more
+information on enums. See below.</p></li>
+</ul>
+<p>Slots that may potentially be added to provide applications with
+hints:</p>
+<ul class="simple">
+<li><p>precedence order</p></li>
+<li><p>grouping categories</p></li>
+</ul>
+<h2 id="customizing-and-application-hints">Customizing and application hints<a class="headerlink" href="#customizing-and-application-hints" title="Permalink to this heading">¶</a></h2>
+<p>One challenge with generic applications is that they often look and
+feel… generic. This can have some advantages, e.g. consistent look
+and feel. But in general UX can be improved by customizing things.</p>
+<p>There are three broad approaches:</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>Make a custom application, with custom domain logic implemented programmatically</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>Define configuration files</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>Add schema hints</p></li>
+</ol>
+</li>
+</ul>
+<p>The first approach is out of scope for this guide – but if you do go
+down this route, the LinkML framework provides various utilities that
+may help, such as the ability to generate custom language bindings.</p>
+<p>The other two approaches are fairly similar and involve providing a
+mechanism for a generic application to customize look, feel, and
+behavior in a way that doesn’t require changing software/code.</p>
+<p>External configuration files may be best for “style sheet” type
+configurations for controlling colors, shapes, sizes, etc. These could
+potentially be tweaked by an individual user.</p>
+<p>It is easy to roll your own configuration format, but we would
+recommend creating a schema for your configuration data model. An
+example of this is <a class="reference external" href="https://berkeleybop.github.io/kgviz-model/">KGViz Schema</a> which is a stylesheet
+language for visualizing ontology graphs, based on <cite>Graphviz&lt;https://graphviz.org/&gt;</cite>.</p>
+<p>Schema hints embed additional information in the schema itself. In
+contrast to external configurations, this is harder for a user to
+change, and so is best suited for ‘centralized’ configuration.</p>
+<p>A simple example might be a slot that takes a string as range. A
+generic data entry application has no way of knowing how big a text
+entry box to provide, and whether this should accept single-line or
+multi-line output. The application could ‘play it safe’ and give the
+user a large multi-line box, but this would be poor UX if the string
+field is always a 3-letter code.</p>
+<p>LinkML allows for slots and types to be annotated with information
+that would serve as hints for applications. It is up to you the level
+of granularity you provide here. However, specifying the precise
+number of rows and columns may be embedding too much application logic
+in the schema. Instead we encourage thinking of “semantic types”. For
+example, you could define two types:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">types</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">NameString</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">typeof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^[^\\n]$&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A description that holds a human readable name</span><span class="w"></span>
+<span class="w">    </span><span class="nt">comments</span><span class="p">:</span><span class="w"></span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">This is designed to support different styles of names from</span><span class="w"></span>
+<span class="w">       </span><span class="l l-Scalar l-Scalar-Plain">multiple languages, but certain characters such as newlines are</span><span class="w"></span>
+<span class="w">       </span><span class="l l-Scalar l-Scalar-Plain">never in names</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">FormattedString</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">typeof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">      </span><span class="no">A string in which characters such as newlines are</span><span class="w"></span>
+<span class="w">      </span><span class="no">permitted and used for formatting</span><span class="w"></span>
+
+<span class="nt">slots</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">full_name</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NameString</span><span class="w"></span>
+<span class="w">  </span><span class="nt">address</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FormattedString</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>And then hardcode these types into the application.</p>
+<p>A more flexible approach would be instead to use annotations on the
+types:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">types</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">NameString</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">typeof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^[^\\n]$&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">dash.singleLine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">FormattedString</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">typeof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">dash.singleLine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>This is better as you can reuse the same vocabulary on different
+types, and you introduce decoupling between specific schemas and your
+application.</p>
+<p>In this case, we are reusing the <a class="reference external" href="https://datashapes.org/forms.html">dash vocabulary</a> which is intended for exactly
+this kind of purpose. Furthermore, if you compile your schema to SHACL
+then it will have the dash annotations, allowing you to leverage
+generic SHACL applications (next section).</p>
+<p>Consider a schema that reuses standard vocabularies such as wgs84 for
+slots:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">prefixes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wgs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.w3.org/2003/01/geo/wgs84_pos#</span><span class="w"></span>
+<span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://schema.org/</span><span class="w"></span>
+
+<span class="nt">slots</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">latitude</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">geolocation value</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">decimal degree</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">      </span><span class="no">latitude</span><span class="w"></span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wgs:lat</span><span class="w"></span>
+<span class="w">    </span><span class="nt">exact_mappings</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:latitude</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">longitude</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">geolocation value</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">decimal degree</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">      </span><span class="no">longitude</span><span class="w"></span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wgs:long</span><span class="w"></span>
+<span class="w">    </span><span class="nt">exact_mappings</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:longitude</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>Applications may choose to have specific behavior for lat-long fields,
+for example, including a map widget. Applications may also choose to
+use mappings as well as the primary URI.</p>
+<p>In addition to the general guidance above, applications may allow for
+custom behavior with enums.</p>
+<p>Applications may choose to display enum permissible values as a
+hierarchy, especially if there are many permissible values. The
+hierarchy is not provided in the schema itself, but additional APIs or
+ontology files can be used. The choice of which relationship types to
+display in the hierarchy may be ontology or application dependent but
+applications are encouraged to use standard annotations from an
+ontology like OMO.</p>
+<p>For open-ended enums or enums with very many permissible values,
+applications may choose to use an autocomplete service from an
+existing ontology. This has the advantage of lookup on multiple
+different aliases. However, note the autocomplete service may return
+more values than are present in the permissible value list.</p>
+<p>There are a wide variety of ways to model quantities, and these are
+use case dependent. Is it important to capture ranges or
+precision/error bars? Is the unit baked in to the slot, or does the
+user specify this? Is the quantity captured as a single parseable text
+string, or is a complex object used?</p>
+<p>The modeling decisions will vary based on the use case. However, if
+certain conventions are followed, then generic applications can be made
+‘smart’.</p>
+<p>For example, if we model quantity values as classes and reuse the
+concept from the standard <cite>qudt&lt;http://qudt.org/&gt;</cite> vocabulary:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">quantity value</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">    </span><span class="no">A simple quantity, e.g. 2cm</span><span class="w"></span>
+<span class="w">  </span><span class="nt">attributes</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">verbatim</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">        </span><span class="no">Unnormalized atomic string representation, should in syntax {number} {unit}</span><span class="w"></span>
+<span class="w">    </span><span class="nt">has unit</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">        </span><span class="no">The unit of the quantity</span><span class="w"></span>
+<span class="w">      </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:unit</span><span class="w"></span>
+<span class="w">    </span><span class="nt">has numeric value</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">        </span><span class="no">The number part of the quantity</span><span class="w"></span>
+<span class="w">      </span><span class="nt">range</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">double</span><span class="w"></span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:QuantityValue</span><span class="w"></span>
+<span class="w">  </span><span class="nt">mappings</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:QuantityValue</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>Then applications can be aware of the semantics of this field and act
+accordingly; for example:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>allow free text entry and use a library like <cite>quantulum&lt;https://github.com/marcolagi/quantulum&gt;</cite> to parse
+into structured form</p></li>
+<li><p>allow for conversion between units</p></li>
+<li><p>use sliders to allow input</p></li>
+<li><p>etc</p></li>
+</ul>
+</div></blockquote>
+<h2 id="using-other-frameworks">Using other frameworks<a class="headerlink" href="#using-other-frameworks" title="Permalink to this heading">¶</a></h2>
+<p>You should also feel free to build applications that use other
+frameworks. You can compile to these from LinkML, but be aware that
+you will be restricted to the expressivity of that language–e.g. a
+project like json-edit can only make use of what is expressible in
+JSON Schema.</p>
+<p>If considering a non-LinkML framework for form-based data entry we
+would strongly recommend SHACL + DASH. See <a class="reference external" href="https://datashapes.org/forms.html">Form Generation using
+SHACL and DASH</a>.</p>
+
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="using-sql-dbs.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using SQL Databases" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Using SQL Databases
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="contributing-code.html" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing Code" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Contributing Code
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2021, LinkML Authors.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    5.0.2.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "search.share"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../_static/javascripts/bundle.dc1bded0.min.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    
+  </body>
+</html>

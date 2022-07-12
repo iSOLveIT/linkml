@@ -1,0 +1,1476 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="_static/onto-favicon.svg">
+    
+    
+      
+        <title>linkml package - LinkML Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="_static/stylesheets/main.2014a6d7.min.css">
+      
+        
+        <link rel="stylesheet" href="_static/stylesheets/palette.92c9fe4a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+        <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+        <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="LinkML Documentation" class="md-header__button md-logo" aria-label="LinkML Documentation" data-md-component="logo">
+      <img src="_static/linkml-logo_color.png" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LinkML Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              linkml package
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/linkml/linkml/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LinkML
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="LinkML Documentation" class="md-nav__button md-logo" aria-label="LinkML Documentation" data-md-component="logo">
+      <img src="_static/linkml-logo_color.png" alt="logo">
+    </a>
+    LinkML Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/linkml/linkml/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LinkML
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          <span class="md-ellipsis">CONTENTS:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CONTENTS:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">CONTENTS:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro/overview.html" class="md-nav__link">
+        <span title="intro/overview (document)" class="md-ellipsis">Link<wbr>ML at a glance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro/install.html" class="md-nav__link">
+        <span title="intro/install (document)" class="md-ellipsis">Quick Install Guide</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro/tutorial.html" class="md-nav__link">
+        <span title="intro/tutorial (document)" class="md-ellipsis">Tutorial</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schemas/index.html" class="md-nav__link">
+        <span title="schemas/index (document)" class="md-ellipsis">Link<wbr>ML Schemas</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data/index.html" class="md-nav__link">
+        <span title="data/index (document)" class="md-ellipsis">Working with Data</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="generators/index.html" class="md-nav__link">
+        <span title="generators/index (document)" class="md-ellipsis">Generators</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples.html" class="md-nav__link">
+        <span title="examples (document)" class="md-ellipsis">Examples of use</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ecosystem.html" class="md-nav__link">
+        <span title="ecosystem (document)" class="md-ellipsis">The Link<wbr>ML Ecosystem</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="specifications/linkml-spec.html" class="md-nav__link">
+        <span title="specifications/linkml-spec (document)" class="md-ellipsis">Link<wbr>ML specification</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing/contributing.html" class="md-nav__link">
+        <span title="contributing/contributing (document)" class="md-ellipsis">Contribution Guidelines</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/index.html" class="md-nav__link">
+        <span title="faq/index (document)" class="md-ellipsis">FAQ</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          <span class="md-ellipsis">DEVELOPERS GUIDE:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DEVELOPERS GUIDE:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">DEVELOPERS GUIDE:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="developers/index.html" class="md-nav__link">
+        <span title="developers/index (document)" class="md-ellipsis">Developers guide</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="code.html" class="md-nav__link">
+        <span title="code (document)" class="md-ellipsis">Code</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset" role="main">
+                
+  <a href="https://github.com/linkml/linkml/blob/main/docs/linkml.rst" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1 id="linkml-package">linkml package<a class="headerlink" href="#linkml-package" title="Permalink to this heading">¶</a></h1>
+<h2 id="subpackages">Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="linkml.generators.html">linkml.generators package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.csvgen">linkml.generators.csvgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.csvgen.CsvGenerator">linkml.generators.csvgen.CsvGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.csvgen.CsvGenerator.generate_header">generate_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.csvgen.CsvGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.csvgen.CsvGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.csvgen.CsvGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.csvgen.CsvGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.csvgen.CsvGenerator.visit_schema">visit_schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.dotgen">linkml.generators.dotgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator">linkml.generators.dotgen.DotGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.directory_output">directory_output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.edge">edge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.end_class">end_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.node">node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.visit_class_slot">visit_class_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.dotgen.DotGenerator.visit_schema">visit_schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.excelgen">linkml.generators.excelgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator">linkml.generators.excelgen.ExcelGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator.generator_name">generator_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator.generator_version">generator_version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator.sheet_name_cols">sheet_name_cols</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator.visit_class_slot">visit_class_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.excelgen.ExcelGenerator.visit_enum">visit_enum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#linkml-generators-flattener-module">linkml.generators.flattener module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.golrgen">linkml.generators.golrgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRClass">linkml.generators.golrgen.GOLRClass</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRClass.description">description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRClass.display_name">display_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRClass.document_category">document_category</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRClass.fields">fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRClass.id">id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRClass.schema_generating">schema_generating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRClass.weight">weight</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRField">linkml.generators.golrgen.GOLRField</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRField.cardinality">cardinality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRField.description">description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRField.display_name">display_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRField.id">id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GOLRField.property">property</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator">linkml.generators.golrgen.GolrSchemaGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.directory_output">directory_output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.end_class">end_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.generate_header">generate_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.visit_class_slot">visit_class_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.golrgen.GolrSchemaGenerator.visit_schema">visit_schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.graphqlgen">linkml.generators.graphqlgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator">linkml.generators.graphqlgen.GraphqlGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator.end_class">end_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator.generate_header">generate_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.graphqlgen.GraphqlGenerator.visit_class_slot">visit_class_slot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.infer_model">linkml.generators.infer_model module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.Hit">linkml.generators.infer_model.Hit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.Hit.name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.Hit.score">score</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.Hit.term_id">term_id</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.convert_range">linkml.generators.infer_model.convert_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.get_db">linkml.generators.infer_model.get_db</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.get_pv_element">linkml.generators.infer_model.get_pv_element</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.get_pv_element-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.get_pv_element-returns">Returns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.infer_enum_meanings">linkml.generators.infer_model.infer_enum_meanings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.infer_model">linkml.generators.infer_model.infer_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.infer_range">linkml.generators.infer_model.infer_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.is_date">linkml.generators.infer_model.is_date</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.infer_model.is_date-parameters">Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.javagen">linkml.generators.javagen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.javagen.JavaGenerator">linkml.generators.javagen.JavaGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.javagen.JavaGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.javagen.JavaGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.javagen.JavaGenerator.map_type">map_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.javagen.JavaGenerator.serialize">serialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.javagen.JavaGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.javagen.JavaGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.jsonldcontextgen">linkml.generators.jsonldcontextgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator">linkml.generators.jsonldcontextgen.ContextGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator.visit_schema">visit_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldcontextgen.ContextGenerator.visit_slot">visit_slot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.jsonldgen">linkml.generators.jsonldgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator">linkml.generators.jsonldgen.JSONLDGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.adjust_slot">adjust_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_slot">visit_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_subset">visit_subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_type">visit_type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.jsonschemagen">linkml.generators.jsonschemagen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator">linkml.generators.jsonschemagen.JsonSchemaGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.end_class">end_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.get_ref_for_descendants">get_ref_for_descendants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.visit_class_slot">visit_class_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.visit_enum">visit_enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.jsonschemagen.JsonSchemaGenerator.visit_schema">visit_schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#linkml-generators-lpgen-module">linkml.generators.lpgen module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.markdowngen">linkml.generators.markdowngen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator">linkml.generators.markdowngen.MarkdownGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.anchor">anchor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.anchorend">anchorend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.bbin">bbin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.bullet">bullet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.class_hier">class_hier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.class_link">class_link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.class_type_link">class_type_link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.desc_for">desc_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.dir_path">dir_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.directory_output">directory_output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.element_header">element_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.element_properties">element_properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.enum_hier">enum_hier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.enum_link">enum_link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.exist_warning">exist_warning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.frontmatter">frontmatter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.header">header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.id_to_url">id_to_url</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.is_secondary_ref">is_secondary_ref</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.mappings">mappings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.para">para</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.pred_hier">pred_hier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.predicate_cardinality">predicate_cardinality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.range_cardinality">range_cardinality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.slot_field">slot_field</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.slot_link">slot_link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.subset_link">subset_link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.to_uri">to_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.type_link">type_link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.visit_enum">visit_enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.visit_schema">visit_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.visit_slot">visit_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.visit_subset">visit_subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.visit_type">visit_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.markdowngen.MarkdownGenerator.xlink">xlink</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.namespacegen">linkml.generators.namespacegen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.namespacegen.NamespaceGenerator">linkml.generators.namespacegen.NamespaceGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.namespacegen.NamespaceGenerator.gen_namespaces">gen_namespaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.namespacegen.NamespaceGenerator.gen_schema">gen_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.namespacegen.NamespaceGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.namespacegen.NamespaceGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.namespacegen.NamespaceGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.namespacegen.NamespaceGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.oocodegen">linkml.generators.oocodegen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass">linkml.generators.oocodegen.OOClass</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.abstract">abstract</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.all_fields">all_fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.annotations">annotations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.fields">fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.is_a">is_a</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.mixins">mixins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.package">package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOClass.source_class">source_class</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator">linkml.generators.oocodegen.OOCodeGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.create_documents">create_documents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.generate_enum_label">generate_enum_label</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.get_class_name">get_class_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.get_slot_name">get_slot_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.java_style">java_style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.make_multivalued">make_multivalued</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.map_type">map_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.package">package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.replace_invalid_identifier_character">replace_invalid_identifier_character</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOCodeGenerator.serialize">serialize</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OODocument">linkml.generators.oocodegen.OODocument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OODocument.classes">classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OODocument.imports">imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OODocument.name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OODocument.package">package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OODocument.source_schema">source_schema</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOField">linkml.generators.oocodegen.OOField</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOField.annotations">annotations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOField.default_value">default_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOField.name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOField.range">range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.oocodegen.OOField.source_slot">source_slot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.owlgen">linkml.generators.owlgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.ElementDefinition">linkml.generators.owlgen.ElementDefinition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.MetadataProfile">linkml.generators.owlgen.MetadataProfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.MetadataProfile.linkml">linkml</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.MetadataProfile.list">list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.MetadataProfile.rdfs">rdfs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator">linkml.generators.owlgen.OwlSchemaGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.add_metadata">add_metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.is_slot_object_property">is_slot_object_property</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.metadata_profile">metadata_profile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.slot_owl_type">slot_owl_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.visit_enum">visit_enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.visit_schema">visit_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.visit_slot">visit_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.visit_type">visit_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.owlgen.OwlSchemaGenerator.visits_are_sorted">visits_are_sorted</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.prefixmapgen">linkml.generators.prefixmapgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator">linkml.generators.prefixmapgen.PrefixGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator.visit_schema">visit_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.prefixmapgen.PrefixGenerator.visit_slot">visit_slot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.projectgen">linkml.generators.projectgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.ProjectConfiguration">linkml.generators.projectgen.ProjectConfiguration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.ProjectConfiguration.directory">directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.ProjectConfiguration.excludes">excludes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.ProjectConfiguration.generator_args">generator_args</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.ProjectConfiguration.includes">includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.ProjectConfiguration.mergeimports">mergeimports</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.ProjectGenerator">linkml.generators.projectgen.ProjectGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.ProjectGenerator.generate">generate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.projectgen.get_local_imports">linkml.generators.projectgen.get_local_imports</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.protogen">linkml.generators.protogen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator">linkml.generators.protogen.ProtoGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator.end_class">end_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator.generate_header">generate_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.protogen.ProtoGenerator.visit_class_slot">visit_class_slot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.pydanticgen">linkml.generators.pydanticgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator">linkml.generators.pydanticgen.PydanticGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.generate_enums">generate_enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.get_class_isa_plus_mixins">get_class_isa_plus_mixins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.get_class_slot_range">get_class_slot_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.get_mixin_identifier_range">get_mixin_identifier_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.get_predefined_slot_values">get_predefined_slot_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.serialize">serialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.sort_classes">sort_classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pydanticgen.PydanticGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.pythongen">linkml.generators.pythongen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator">linkml.generators.pythongen.PythonGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.class_reference_type">class_reference_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.compile_module">compile_module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.forward_reference">forward_reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_class_meta">gen_class_meta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_class_reference">gen_class_reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_class_variable">gen_class_variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_class_variables">gen_class_variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_classdef">gen_classdef</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_classdefs">gen_classdefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_enum">gen_enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_enum_comment">gen_enum_comment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_enum_definition">gen_enum_definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_enum_description">gen_enum_description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_enumerations">gen_enumerations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_import_list">gen_import_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_imports">gen_imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_inherited_slots">gen_inherited_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_namespaces">gen_namespaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_postinit">gen_postinit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_postinits">gen_postinits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_pv_constructor">gen_pv_constructor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_pvs">gen_pvs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_pvs2">gen_pvs2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_pvs2_initializers">gen_pvs2_initializers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_references">gen_references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_schema">gen_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_slot">gen_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_slotdefs">gen_slotdefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_type_meta">gen_type_meta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.gen_typedefs">gen_typedefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.is_key_value_class">is_key_value_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.key_name_for">key_name_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.primary_keys_for">primary_keys_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.python_uri_for">python_uri_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.range_cardinality">range_cardinality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.range_type_name">range_type_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.visit_schema">visit_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.visit_slot">visit_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.pythongen.PythonGenerator.visit_type">visit_type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.rdfgen">linkml.generators.rdfgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.rdfgen.RDFGenerator">linkml.generators.rdfgen.RDFGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.rdfgen.RDFGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.rdfgen.RDFGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.rdfgen.RDFGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.rdfgen.RDFGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.rdfgen.RDFGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.shaclgen">linkml.generators.shaclgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.shaclgen.ShaclGenerator">linkml.generators.shaclgen.ShaclGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shaclgen.ShaclGenerator.as_graph">as_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shaclgen.ShaclGenerator.generate_header">generate_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shaclgen.ShaclGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shaclgen.ShaclGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shaclgen.ShaclGenerator.serialize">serialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shaclgen.ShaclGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shaclgen.ShaclGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.shexgen">linkml.generators.shexgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator">linkml.generators.shexgen.ShExGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.end_class">end_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.generate_header">generate_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.visit_class_slot">visit_class_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.shexgen.ShExGenerator.visit_schema">visit_schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.sparqlgen">linkml.generators.sparqlgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.sparqlgen.SparqlGenerator">linkml.generators.sparqlgen.SparqlGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sparqlgen.SparqlGenerator.generate_sparql">generate_sparql</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sparqlgen.SparqlGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sparqlgen.SparqlGenerator.serialize">serialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sparqlgen.SparqlGenerator.split_sparql">split_sparql</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sparqlgen.SparqlGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sparqlgen.SparqlGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.sparqlgen.materialize_schema">linkml.generators.sparqlgen.materialize_schema</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.sqlddlgen">linkml.generators.sqlddlgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.Backref">linkml.generators.sqlddlgen.Backref</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.Backref.backref_column">backref_column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.Backref.order_by">order_by</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.Backref.original_column">original_column</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.DDLEntity">linkml.generators.sqlddlgen.DDLEntity</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.DDLEntity.description">description</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn">linkml.generators.sqlddlgen.SQLColumn</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.as_ddlstr">as_ddlstr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.base_type">base_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.foreign_key">foreign_key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.is_primary_key">is_primary_key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.is_singular_primary_key">is_singular_primary_key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.mapped_to">mapped_to</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.mapped_to_alias">mapped_to_alias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLColumn.table">table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator">linkml.generators.sqlddlgen.SQLDDLGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.dialect">dialect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.end_class">end_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.generate_ddl">generate_ddl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.generate_header">generate_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.get_sql_range">get_sql_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.inject_primary_keys">inject_primary_keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.sqlschema">sqlschema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.use_inherits">use_inherits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.visit_class_slot">visit_class_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLDDLGenerator.write_sqla_python_imperative">write_sqla_python_imperative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLSchema">linkml.generators.sqlddlgen.SQLSchema</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLSchema.add_table">add_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLSchema.all_columns">all_columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLSchema.get_table_by_class_name">get_table_by_class_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLSchema.mapped_to">mapped_to</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLSchema.name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLSchema.tables">tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable">linkml.generators.sqlddlgen.SQLTable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.add_column">add_column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.as_var">as_var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.backrefs">backrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.columns">columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.get_singular_primary_key">get_singular_primary_key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.in_schema">in_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.mapped_to">mapped_to</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.primary_keys">primary_keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.referenced_by">referenced_by</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.sqlddlgen.SQLTable.remove_column">remove_column</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.summarygen">linkml.generators.summarygen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.summarygen.SummaryGenerator">linkml.generators.summarygen.SummaryGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.summarygen.SummaryGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.summarygen.SummaryGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.summarygen.SummaryGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.summarygen.SummaryGenerator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.summarygen.SummaryGenerator.visit_class_slot">visit_class_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.summarygen.SummaryGenerator.visit_schema">visit_schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#linkml-generators-terminusdbgen-module">linkml.generators.terminusdbgen module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.yamlgen">linkml.generators.yamlgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.yamlgen.YAMLGenerator">linkml.generators.yamlgen.YAMLGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yamlgen.YAMLGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yamlgen.YAMLGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yamlgen.YAMLGenerator.serialize">serialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yamlgen.YAMLGenerator.valid_formats">valid_formats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators.yumlgen">linkml.generators.yumlgen module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator">linkml.generators.yumlgen.YumlGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.cardinality">cardinality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.class_associations">class_associations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.class_box">class_box</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.filtered_cls_slots">filtered_cls_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.prop_modifier">prop_modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.generators.html#linkml.generators.yumlgen.YumlGenerator.visit_schema">visit_schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.generators.html#module-linkml.generators">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linkml.reporting.html">linkml.reporting package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linkml.reporting.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.reporting.html#module-linkml.reporting.model">linkml.reporting.model module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult">linkml.reporting.model.CheckResult</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.class_class_curie">class_class_curie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.class_class_uri">class_class_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.class_model_uri">class_model_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.class_name">class_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.info">info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.instantiates">instantiates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.object">object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.object_str">object_str</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.predicate">predicate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.source">source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.subject">subject</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.CheckResult.type">type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Problem">linkml.reporting.model.Problem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Problem.class_class_curie">class_class_curie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Problem.class_class_uri">class_class_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Problem.class_model_uri">class_model_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Problem.class_name">class_name</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotInapplicable">linkml.reporting.model.ProblemSlotInapplicable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotInapplicable.class_class_curie">class_class_curie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotInapplicable.class_class_uri">class_class_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotInapplicable.class_model_uri">class_model_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotInapplicable.class_name">class_name</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotMissing">linkml.reporting.model.ProblemSlotMissing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotMissing.class_class_curie">class_class_curie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotMissing.class_class_uri">class_class_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotMissing.class_model_uri">class_model_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotMissing.class_name">class_name</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotUndeclared">linkml.reporting.model.ProblemSlotUndeclared</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotUndeclared.class_class_curie">class_class_curie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotUndeclared.class_class_uri">class_class_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotUndeclared.class_model_uri">class_model_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.ProblemSlotUndeclared.class_name">class_name</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Report">linkml.reporting.model.Report</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Report.class_class_curie">class_class_curie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Report.class_class_uri">class_class_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Report.class_model_uri">class_model_uri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Report.class_name">class_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.Report.results">results</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.SeverityOptions">linkml.reporting.model.SeverityOptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.SeverityOptions.ERROR">ERROR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.SeverityOptions.FATAL">FATAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.SeverityOptions.INFO">INFO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.SeverityOptions.WARNING">WARNING</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots">linkml.reporting.model.slots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.info">info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.instantiates">instantiates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.object">object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.object_str">object_str</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.predicate">predicate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.report__results">report__results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.severity">severity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.source">source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.subject">subject</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.reporting.html#linkml.reporting.model.slots.type">type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.reporting.html#module-linkml.reporting">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linkml.utils.html">linkml.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.converter">linkml.utils.converter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.datautils">linkml.utils.datautils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.datautils.get_dumper">linkml.utils.datautils.get_dumper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.datautils.get_loader">linkml.utils.datautils.get_loader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.datautils.infer_index_slot">linkml.utils.datautils.infer_index_slot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.datautils.infer_root_class">linkml.utils.datautils.infer_root_class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.datavalidator">linkml.utils.datavalidator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.datavalidator.DataValidator">linkml.utils.datavalidator.DataValidator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.datavalidator.DataValidator.schema">schema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.execute_tutorial">linkml.utils.execute_tutorial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block">linkml.utils.execute_tutorial.Block</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.annotations">annotations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.category">category</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.content">content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.error">error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.expected_fail">expected_fail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.is_bash">is_bash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.is_file_block">is_file_block</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.is_stdout">is_stdout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.output">output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.prior_lines">prior_lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.Block.title">title</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.execute_blocks">linkml.utils.execute_tutorial.execute_blocks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.execute_blocks-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.execute_blocks-returns">Returns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.parse_file_to_blocks">linkml.utils.execute_tutorial.parse_file_to_blocks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.parse_file_to_blocks-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.parse_file_to_blocks-returns">Returns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.execute_tutorial.write_lines">linkml.utils.execute_tutorial.write_lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.generator">linkml.utils.generator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator">linkml.utils.generator.Generator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.add_id_prefixes">add_id_prefixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.add_mappings">add_mappings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.add_prefix">add_prefix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.aliased_slot_name">aliased_slot_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.all_slots">all_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.ancestors">ancestors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.base_dir">base_dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.class_identifier">class_identifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.class_identifier_path">class_identifier_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.class_or_type_for">class_or_type_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.class_or_type_name">class_or_type_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.default_prefix">default_prefix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.directory_output">directory_output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.domain_slots">domain_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.end_class">end_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.end_schema">end_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.enum_identifier_path">enum_identifier_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.formatted_element_name">formatted_element_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.generatorname">generatorname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.generatorversion">generatorversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.get_metamodel_slot_name">get_metamodel_slot_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.is_class_unconstrained">is_class_unconstrained</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.metamodel_name_map">metamodel_name_map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.neighborhood">neighborhood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.obj_for">obj_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.own_slot_names">own_slot_names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.own_slots">own_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.parent">parent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.range_type_path">range_type_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.serialize">serialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.slot_for">slot_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.slot_name">slot_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.slot_range_path">slot_range_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.sort_class_slots">sort_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.subset_for">subset_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.subset_name">subset_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.valid_formats">valid_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visit_all_class_slots">visit_all_class_slots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visit_class">visit_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visit_class_slot">visit_class_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visit_enum">visit_enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visit_schema">visit_schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visit_slot">visit_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visit_subset">visit_subset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visit_type">visit_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.Generator.visits_are_sorted">visits_are_sorted</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.generator.shared_arguments">linkml.utils.generator.shared_arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.helpers">linkml.utils.helpers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.helpers.remove_duplicates">linkml.utils.helpers.remove_duplicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.helpers.write_to_file">linkml.utils.helpers.write_to_file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.ifabsent_functions">linkml.utils.ifabsent_functions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.curie_for">linkml.utils.ifabsent_functions.curie_for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.default_curie_or_uri">linkml.utils.ifabsent_functions.default_curie_or_uri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.default_ns_for">linkml.utils.ifabsent_functions.default_ns_for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.default_uri_for">linkml.utils.ifabsent_functions.default_uri_for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.ifabsent_postinit_declaration">linkml.utils.ifabsent_functions.ifabsent_postinit_declaration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.ifabsent_value_declaration">linkml.utils.ifabsent_functions.ifabsent_value_declaration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.isabsent_match">linkml.utils.ifabsent_functions.isabsent_match</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.strval">linkml.utils.ifabsent_functions.strval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.ifabsent_functions.uri_for">linkml.utils.ifabsent_functions.uri_for</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.mergeutils">linkml.utils.mergeutils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.alias_root">linkml.utils.mergeutils.alias_root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_classes">linkml.utils.mergeutils.merge_classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_classes-parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_dicts">linkml.utils.mergeutils.merge_dicts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_enums">linkml.utils.mergeutils.merge_enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_enums-parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_namespaces">linkml.utils.mergeutils.merge_namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_namespaces-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_namespaces-returns">Returns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_schemas">linkml.utils.mergeutils.merge_schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_slots">linkml.utils.mergeutils.merge_slots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.merge_slots-parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.set_from_schema">linkml.utils.mergeutils.set_from_schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.slot_usage_name">linkml.utils.mergeutils.slot_usage_name</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.slot_usage_name-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.mergeutils.slot_usage_name-returns">Returns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.rawloader">linkml.utils.rawloader module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.rawloader.load_raw_schema">linkml.utils.rawloader.load_raw_schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.rawloader.mrf">linkml.utils.rawloader.mrf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.schemaloader">linkml.utils.schemaloader module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader">linkml.utils.schemaloader.SchemaLoader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.check_prefix">check_prefix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.check_prefixes">check_prefixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.logger_warning">logger_warning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.merge_class">merge_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.merge_enum">merge_enum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.merge_slot">merge_slot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.merge_type">merge_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.process_slot_usage_definitions">process_slot_usage_definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.process_slot_usages">process_slot_usages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.raise_value_error">raise_value_error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.raise_value_errors">raise_value_errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.resolve">resolve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.schema_errors">schema_errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.slot_definition_for">slot_definition_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.slot_name_for">slot_name_for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemaloader.SchemaLoader.validate_item_names">validate_item_names</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.schemasynopsis">linkml.utils.schemasynopsis module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis">linkml.utils.schemasynopsis.SchemaSynopsis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.abstracts">abstracts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.add_ref">add_ref</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.applytorefs">applytorefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.applytos">applytos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.classrefs">classrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.codesets">codesets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.definingslots">definingslots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.enumrefs">enumrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.errors">errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.inschema">inschema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.inverses">inverses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.isarefs">isarefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.mixinrefs">mixinrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.mixins">mixins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.owners">owners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.ownslots">ownslots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.rangerefs">rangerefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.roots">roots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.schema">schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.slotclasses">slotclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.slotrefs">slotrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.slotusages">slotusages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.subsetrefs">subsetrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.summarize_class_definition">summarize_class_definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.summarize_definition">summarize_definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.summarize_element">summarize_element</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.summarize_enum_definition">summarize_enum_definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.summarize_slot_definition">summarize_slot_definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.summarize_type_definition">summarize_type_definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.summary">summary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.typebases">typebases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.typeofs">typeofs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.SchemaSynopsis.typerefs">typerefs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.schemasynopsis.empty_references">linkml.utils.schemasynopsis.empty_references</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#linkml-utils-sqltransformer-old-module">linkml.utils.sqltransformer_old module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.typereferences">linkml.utils.typereferences module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.RefType">linkml.utils.typereferences.RefType</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.RefType.name">name</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.References">linkml.utils.typereferences.References</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.References.addref">addref</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.References.classrefs">classrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.References.enumrefs">enumrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.References.slotrefs">slotrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.References.subsetrefs">subsetrefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.References.typerefs">typerefs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.typereferences.References.update">update</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils.validation">linkml.utils.validation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linkml.utils.html#linkml.utils.validation.validate_object">linkml.utils.validation.validate_object</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.validation.validate_object-parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="linkml.utils.html#linkml.utils.validation.validate_object-returns">Returns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linkml.utils.html#module-linkml.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="module-linkml"><span id="module-contents"></span>Module contents<a class="headerlink" href="#module-linkml" title="Permalink to this heading">¶</a></h2>
+
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2021, LinkML Authors.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    5.0.2.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "search.share"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="_static/javascripts/bundle.dc1bded0.min.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/design-tabs.js"></script>
+    
+  </body>
+</html>

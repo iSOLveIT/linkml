@@ -1,0 +1,2135 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../_static/onto-favicon.svg">
+    
+    
+      
+        <title>Data Convetsion: Loaders and Dumpers - LinkML Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../_static/stylesheets/main.2014a6d7.min.css">
+      
+        
+        <link rel="stylesheet" href="../_static/stylesheets/palette.92c9fe4a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+        <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+        <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#json-conversion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="LinkML Documentation" class="md-header__button md-logo" aria-label="LinkML Documentation" data-md-component="logo">
+      <img src="../_static/linkml-logo_color.png" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LinkML Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Convetsion: Loaders and Dumpers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/linkml/linkml/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LinkML
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="LinkML Documentation" class="md-nav__button md-logo" aria-label="LinkML Documentation" data-md-component="logo">
+      <img src="../_static/linkml-logo_color.png" alt="logo">
+    </a>
+    LinkML Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/linkml/linkml/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LinkML
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          <span class="md-ellipsis">CONTENTS:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CONTENTS:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">CONTENTS:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/overview.html" class="md-nav__link">
+        <span title="intro/overview (document)" class="md-ellipsis">Link<wbr>ML at a glance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/install.html" class="md-nav__link">
+        <span title="intro/install (document)" class="md-ellipsis">Quick Install Guide</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/tutorial.html" class="md-nav__link">
+        <span title="intro/tutorial (document)" class="md-ellipsis">Tutorial</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/index.html" class="md-nav__link">
+        <span title="schemas/index (document)" class="md-ellipsis">Link<wbr>ML Schemas</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/index.html" class="md-nav__link">
+        <span title="data/index (document)" class="md-ellipsis">Working with Data</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generators/index.html" class="md-nav__link">
+        <span title="generators/index (document)" class="md-ellipsis">Generators</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples.html" class="md-nav__link">
+        <span title="examples (document)" class="md-ellipsis">Examples of use</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecosystem.html" class="md-nav__link">
+        <span title="ecosystem (document)" class="md-ellipsis">The Link<wbr>ML Ecosystem</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../specifications/linkml-spec.html" class="md-nav__link">
+        <span title="specifications/linkml-spec (document)" class="md-ellipsis">Link<wbr>ML specification</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/contributing.html" class="md-nav__link">
+        <span title="contributing/contributing (document)" class="md-ellipsis">Contribution Guidelines</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/index.html" class="md-nav__link">
+        <span title="faq/index (document)" class="md-ellipsis">FAQ</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          <span class="md-ellipsis">DEVELOPERS GUIDE:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DEVELOPERS GUIDE:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">DEVELOPERS GUIDE:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html"><span title="developers/index (document)" class="md-ellipsis">Developers guide</span></a>
+          
+            <label for="__nav_2_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Developers guide" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span title="developers/index (document)" class="md-ellipsis">Developers guide</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="organization.html" class="md-nav__link">
+        <span title="developers/organization (document)" class="md-ellipsis">Git<wbr>Hub Organization</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="notebooks.html" class="md-nav__link">
+        <span title="developers/notebooks (document)" class="md-ellipsis">Jupyter Notebooks</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manipulating-schemas.html" class="md-nav__link">
+        <span title="developers/manipulating-schemas (document)" class="md-ellipsis">Manipulating Schemas</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span title="developers/loaders-and-dumpers (document)" class="md-ellipsis">Data Convetsion:<wbr> Loaders and Dumpers</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        <span title="developers/loaders-and-dumpers (document)" class="md-ellipsis">Data Convetsion:<wbr> Loaders and Dumpers</span>
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      <span title="developers/loaders-and-dumpers (document)" class="md-ellipsis">Data Convetsion:<wbr> Loaders and Dumpers</span>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json-conversion" class="md-nav__link">
+    <span title="developers/loaders-and-dumpers:json conversion (reference label)" class="md-ellipsis">JSON Conversion</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.dumpers.JSONDumper (Python class) — Write element as json to to_file :param element: LinkML object to be serialized as YAML :param to_file: file to write to :param contexts: JSON-LD context(s) in the form of:" class="md-ellipsis">linkml_<wbr>runtime.<wbr>dumpers.<wbr>JSONDumper</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.dumpers.JSONDumper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dump" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.JSONDumper.dump (Python method) — Write element as json to to_file :param element: LinkML object to be serialized as YAML :param to_file: file to write to :param contexts: JSON-LD context(s) in the form of:" class="md-ellipsis">dump</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dumps" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.JSONDumper.dumps (Python method) — Return element as a JSON or a JSON-LD string :param element: LinkML object to be emitted :param contexts: JSON-LD context(s) in the form of:" class="md-ellipsis">dumps</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dumps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dumps-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dumps.inject_type" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.dumpers.JSONDumper.dumps.inject_type (Python parameter) — if True (default), add a @type at the top level" class="md-ellipsis">inject_<wbr>type</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dumps-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.loaders.JSONLoader (Python class) — Load source as an instance of target_class" class="md-ellipsis">linkml_<wbr>runtime.<wbr>loaders.<wbr>JSONLoader</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.loaders.JSONLoader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.load" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.JSONLoader.load (Python method) — Load source as an instance of target_class" class="md-ellipsis">load</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.load-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.load-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.load_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.JSONLoader.load_any (Python method) — Load source as an instance of target_class, or list of instances of target_class" class="md-ellipsis">load_<wbr>any</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.loads" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.JSONLoader.loads (Python method) — Load source as a string :param source: source :param target_class: destination class :param metadata: metadata about the source :param _: extensions :return: instance of taarget_class" class="md-ellipsis">loads</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.loads_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.JSONLoader.loads_any (Python method) — Load source as a string as an instance of target_class, or list of instances of target_class @param source: source @param target_class: destination class @param metadata: metadata about the source @param _: extensions @return: instance of taarget_class" class="md-ellipsis">loads_<wbr>any</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-conversion" class="md-nav__link">
+    <span title="developers/loaders-and-dumpers:yaml conversion (reference label)" class="md-ellipsis">YAML Conversion</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="YAML Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.YAMLDumper" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.dumpers.YAMLDumper (Python class) — Write element to to_file :param element: LinkML object to be dumped :param to_file: file to dump to :@param _: method specific arguments" class="md-ellipsis">linkml_<wbr>runtime.<wbr>dumpers.<wbr>YAMLDumper</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.dumpers.YAMLDumper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.YAMLDumper.dump" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.YAMLDumper.dump (Python method) — Write element to to_file :param element: LinkML object to be dumped :param to_file: file to dump to :@param _: method specific arguments" class="md-ellipsis">dump</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.YAMLDumper.dumps" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.YAMLDumper.dumps (Python method) — Return element formatted as a YAML string" class="md-ellipsis">dumps</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.loaders.YAMLLoader (Python class) — A Loader that is capable of instantiating LinkML data objects from a YAML file" class="md-ellipsis">linkml_<wbr>runtime.<wbr>loaders.<wbr>YAMLLoader</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.loaders.YAMLLoader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.load" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.YAMLLoader.load (Python method) — Load source as an instance of target_class" class="md-ellipsis">load</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.load-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.load-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.load_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.YAMLLoader.load_any (Python method) — Load source as an instance of target_class, or list of instances of target_class" class="md-ellipsis">load_<wbr>any</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.loads" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.YAMLLoader.loads (Python method) — Load source as a string :param source: source :param target_class: destination class :param metadata: metadata about the source :param _: extensions :return: instance of taarget_class" class="md-ellipsis">loads</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.loads_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.YAMLLoader.loads_any (Python method) — Load source as a string @param source: source @param target_class: destination class @param metadata: metadata about the source @param _: extensions @return: instance of taarget_class" class="md-ellipsis">loads_<wbr>any</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rdf-conversion" class="md-nav__link">
+    <span title="developers/loaders-and-dumpers:rdf conversion (reference label)" class="md-ellipsis">RDF Conversion</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RDF Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.loaders.RDFLibLoader (Python class) — Loads objects from rdflib Graphs into the python target_class structure" class="md-ellipsis">linkml_<wbr>runtime.<wbr>loaders.<wbr>RDFLib<wbr>Loader</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.loaders.RDFLibLoader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.RDFLibLoader.load (Python method) — Load the RDF in source into the python target_class structure" class="md-ellipsis">load</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.source" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.source (Python parameter) — RDF data source. Can be a file name, an open handle or an existing graph" class="md-ellipsis">source</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.target_class" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.target_class (Python parameter) — LinkML class to load the RDF into" class="md-ellipsis">target_<wbr>class</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.schemaview" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.schemaview (Python parameter) — view over schema to guide instantiation" class="md-ellipsis">schemaview</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.prefix_map" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.prefix_map (Python parameter) — map of prefixes used in data" class="md-ellipsis">prefix_<wbr>map</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.fmt" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.fmt (Python parameter) — format of source if it isn&#39;t an existing Graph" class="md-ellipsis">fmt</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.metadata" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.metadata (Python parameter) — source information. Used by some loaders to record where information came from" class="md-ellipsis">metadata</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.kwargs" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.kwargs (Python parameter) — additional arguments passed to from_rdf_graph" class="md-ellipsis">kwargs</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.RDFLibLoader.load_any (Python method) — Load source as an instance of target_class, or list of instances of target_class" class="md-ellipsis">load_<wbr>any</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.loads" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.RDFLibLoader.loads (Python method) — Load source as a string :param source: source :param target_class: destination class :param metadata: metadata about the source :param _: extensions :return: instance of taarget_class" class="md-ellipsis">loads</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.loads_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.RDFLibLoader.loads_any (Python method) — Load source as a string as an instance of target_class, or list of instances of target_class @param source: source @param target_class: destination class @param metadata: metadata about the source @param _: extensions @return: instance of taarget_class" class="md-ellipsis">loads_<wbr>any</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv-conversion" class="md-nav__link">
+    <span title="developers/loaders-and-dumpers:csv conversion (reference label)" class="md-ellipsis">CSV Conversion</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.CSVDumper" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.dumpers.CSVDumper (Python class) — Write element to to_file :param element: LinkML object to be dumped :param to_file: file to dump to :@param _: method specific arguments" class="md-ellipsis">linkml_<wbr>runtime.<wbr>dumpers.<wbr>CSVDumper</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.dumpers.CSVDumper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.CSVDumper.dump" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.CSVDumper.dump (Python method) — Write element to to_file :param element: LinkML object to be dumped :param to_file: file to dump to :@param _: method specific arguments" class="md-ellipsis">dump</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.CSVDumper.dumps" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.CSVDumper.dumps (Python method) — Return element formatted as CSV lines" class="md-ellipsis">dumps</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.loaders.CSVLoader (Python class) — Load source as an instance of target_class" class="md-ellipsis">linkml_<wbr>runtime.<wbr>loaders.<wbr>CSVLoader</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.loaders.CSVLoader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.CSVLoader.load (Python method) — Load source as an instance of target_class" class="md-ellipsis">load</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load.source" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.CSVLoader.load.source (Python parameter) — source file/text/url to load" class="md-ellipsis">source</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load.target_class" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.CSVLoader.load.target_class (Python parameter) — destination class" class="md-ellipsis">target_<wbr>class</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.CSVLoader.load_any (Python method) — Load source as an instance of target_class, or list of instances of target_class" class="md-ellipsis">load_<wbr>any</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.loads" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.CSVLoader.loads (Python method) — Load source as a string :param source: source :param target_class: destination class :param metadata: metadata about the source :param _: extensions :return: instance of taarget_class" class="md-ellipsis">loads</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.loads_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.CSVLoader.loads_any (Python method) — Load source as a string as an instance of target_class, or list of instances of target_class @param source: source @param target_class: destination class @param metadata: metadata about the source @param _: extensions @return: instance of taarget_class" class="md-ellipsis">loads_<wbr>any</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="using-sql-dbs.html" class="md-nav__link">
+        <span title="developers/using-sql-dbs (document)" class="md-ellipsis">Using SQL Databases</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tool-developer-guide.html" class="md-nav__link">
+        <span title="developers/tool-developer-guide (document)" class="md-ellipsis">Tool Implementor Guide</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing-code.html" class="md-nav__link">
+        <span title="developers/contributing-code (document)" class="md-ellipsis">Contributing Code</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code.html" class="md-nav__link">
+        <span title="code (document)" class="md-ellipsis">Code</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      <span title="developers/loaders-and-dumpers (document)" class="md-ellipsis">Data Convetsion:<wbr> Loaders and Dumpers</span>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json-conversion" class="md-nav__link">
+    <span title="developers/loaders-and-dumpers:json conversion (reference label)" class="md-ellipsis">JSON Conversion</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.dumpers.JSONDumper (Python class) — Write element as json to to_file :param element: LinkML object to be serialized as YAML :param to_file: file to write to :param contexts: JSON-LD context(s) in the form of:" class="md-ellipsis">linkml_<wbr>runtime.<wbr>dumpers.<wbr>JSONDumper</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.dumpers.JSONDumper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dump" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.JSONDumper.dump (Python method) — Write element as json to to_file :param element: LinkML object to be serialized as YAML :param to_file: file to write to :param contexts: JSON-LD context(s) in the form of:" class="md-ellipsis">dump</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dumps" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.JSONDumper.dumps (Python method) — Return element as a JSON or a JSON-LD string :param element: LinkML object to be emitted :param contexts: JSON-LD context(s) in the form of:" class="md-ellipsis">dumps</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dumps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dumps-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dumps.inject_type" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.dumpers.JSONDumper.dumps.inject_type (Python parameter) — if True (default), add a @type at the top level" class="md-ellipsis">inject_<wbr>type</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.JSONDumper.dumps-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.loaders.JSONLoader (Python class) — Load source as an instance of target_class" class="md-ellipsis">linkml_<wbr>runtime.<wbr>loaders.<wbr>JSONLoader</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.loaders.JSONLoader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.load" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.JSONLoader.load (Python method) — Load source as an instance of target_class" class="md-ellipsis">load</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.load-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.load-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.load_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.JSONLoader.load_any (Python method) — Load source as an instance of target_class, or list of instances of target_class" class="md-ellipsis">load_<wbr>any</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.loads" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.JSONLoader.loads (Python method) — Load source as a string :param source: source :param target_class: destination class :param metadata: metadata about the source :param _: extensions :return: instance of taarget_class" class="md-ellipsis">loads</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.JSONLoader.loads_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.JSONLoader.loads_any (Python method) — Load source as a string as an instance of target_class, or list of instances of target_class @param source: source @param target_class: destination class @param metadata: metadata about the source @param _: extensions @return: instance of taarget_class" class="md-ellipsis">loads_<wbr>any</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-conversion" class="md-nav__link">
+    <span title="developers/loaders-and-dumpers:yaml conversion (reference label)" class="md-ellipsis">YAML Conversion</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="YAML Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.YAMLDumper" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.dumpers.YAMLDumper (Python class) — Write element to to_file :param element: LinkML object to be dumped :param to_file: file to dump to :@param _: method specific arguments" class="md-ellipsis">linkml_<wbr>runtime.<wbr>dumpers.<wbr>YAMLDumper</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.dumpers.YAMLDumper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.YAMLDumper.dump" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.YAMLDumper.dump (Python method) — Write element to to_file :param element: LinkML object to be dumped :param to_file: file to dump to :@param _: method specific arguments" class="md-ellipsis">dump</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.YAMLDumper.dumps" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.YAMLDumper.dumps (Python method) — Return element formatted as a YAML string" class="md-ellipsis">dumps</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.loaders.YAMLLoader (Python class) — A Loader that is capable of instantiating LinkML data objects from a YAML file" class="md-ellipsis">linkml_<wbr>runtime.<wbr>loaders.<wbr>YAMLLoader</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.loaders.YAMLLoader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.load" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.YAMLLoader.load (Python method) — Load source as an instance of target_class" class="md-ellipsis">load</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.load-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.load-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.load_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.YAMLLoader.load_any (Python method) — Load source as an instance of target_class, or list of instances of target_class" class="md-ellipsis">load_<wbr>any</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.loads" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.YAMLLoader.loads (Python method) — Load source as a string :param source: source :param target_class: destination class :param metadata: metadata about the source :param _: extensions :return: instance of taarget_class" class="md-ellipsis">loads</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.YAMLLoader.loads_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.YAMLLoader.loads_any (Python method) — Load source as a string @param source: source @param target_class: destination class @param metadata: metadata about the source @param _: extensions @return: instance of taarget_class" class="md-ellipsis">loads_<wbr>any</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rdf-conversion" class="md-nav__link">
+    <span title="developers/loaders-and-dumpers:rdf conversion (reference label)" class="md-ellipsis">RDF Conversion</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RDF Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.loaders.RDFLibLoader (Python class) — Loads objects from rdflib Graphs into the python target_class structure" class="md-ellipsis">linkml_<wbr>runtime.<wbr>loaders.<wbr>RDFLib<wbr>Loader</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.loaders.RDFLibLoader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.RDFLibLoader.load (Python method) — Load the RDF in source into the python target_class structure" class="md-ellipsis">load</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.source" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.source (Python parameter) — RDF data source. Can be a file name, an open handle or an existing graph" class="md-ellipsis">source</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.target_class" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.target_class (Python parameter) — LinkML class to load the RDF into" class="md-ellipsis">target_<wbr>class</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.schemaview" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.schemaview (Python parameter) — view over schema to guide instantiation" class="md-ellipsis">schemaview</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.prefix_map" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.prefix_map (Python parameter) — map of prefixes used in data" class="md-ellipsis">prefix_<wbr>map</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.fmt" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.fmt (Python parameter) — format of source if it isn&#39;t an existing Graph" class="md-ellipsis">fmt</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.metadata" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.metadata (Python parameter) — source information. Used by some loaders to record where information came from" class="md-ellipsis">metadata</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load.kwargs" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.RDFLibLoader.load.kwargs (Python parameter) — additional arguments passed to from_rdf_graph" class="md-ellipsis">kwargs</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.load_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.RDFLibLoader.load_any (Python method) — Load source as an instance of target_class, or list of instances of target_class" class="md-ellipsis">load_<wbr>any</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.loads" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.RDFLibLoader.loads (Python method) — Load source as a string :param source: source :param target_class: destination class :param metadata: metadata about the source :param _: extensions :return: instance of taarget_class" class="md-ellipsis">loads</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.RDFLibLoader.loads_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.RDFLibLoader.loads_any (Python method) — Load source as a string as an instance of target_class, or list of instances of target_class @param source: source @param target_class: destination class @param metadata: metadata about the source @param _: extensions @return: instance of taarget_class" class="md-ellipsis">loads_<wbr>any</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv-conversion" class="md-nav__link">
+    <span title="developers/loaders-and-dumpers:csv conversion (reference label)" class="md-ellipsis">CSV Conversion</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.CSVDumper" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.dumpers.CSVDumper (Python class) — Write element to to_file :param element: LinkML object to be dumped :param to_file: file to dump to :@param _: method specific arguments" class="md-ellipsis">linkml_<wbr>runtime.<wbr>dumpers.<wbr>CSVDumper</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.dumpers.CSVDumper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.CSVDumper.dump" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.CSVDumper.dump (Python method) — Write element to to_file :param element: LinkML object to be dumped :param to_file: file to dump to :@param _: method specific arguments" class="md-ellipsis">dump</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.dumpers.CSVDumper.dumps" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.dumpers.CSVDumper.dumps (Python method) — Return element formatted as CSV lines" class="md-ellipsis">dumps</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader" class="md-nav__link">
+    <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span><span title="linkml_runtime.loaders.CSVLoader (Python class) — Load source as an instance of target_class" class="md-ellipsis">linkml_<wbr>runtime.<wbr>loaders.<wbr>CSVLoader</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="linkml_runtime.loaders.CSVLoader">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.CSVLoader.load (Python method) — Load source as an instance of target_class" class="md-ellipsis">load</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load-parameters" class="md-nav__link">
+    <span class="md-ellipsis">Parameters</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load.source" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.CSVLoader.load.source (Python parameter) — source file/text/url to load" class="md-ellipsis">source</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load.target_class" class="md-nav__link">
+    <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span><span title="linkml_runtime.loaders.CSVLoader.load.target_class (Python parameter) — destination class" class="md-ellipsis">target_<wbr>class</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load-returns" class="md-nav__link">
+    <span class="md-ellipsis">Returns</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.load_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.CSVLoader.load_any (Python method) — Load source as an instance of target_class, or list of instances of target_class" class="md-ellipsis">load_<wbr>any</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.loads" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.CSVLoader.loads (Python method) — Load source as a string :param source: source :param target_class: destination class :param metadata: metadata about the source :param _: extensions :return: instance of taarget_class" class="md-ellipsis">loads</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkml_runtime.loaders.CSVLoader.loads_any" class="md-nav__link">
+    <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span><span title="linkml_runtime.loaders.CSVLoader.loads_any (Python method) — Load source as a string as an instance of target_class, or list of instances of target_class @param source: source @param target_class: destination class @param metadata: metadata about the source @param _: extensions @return: instance of taarget_class" class="md-ellipsis">loads_<wbr>any</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset" role="main">
+                
+  <a href="https://github.com/linkml/linkml/blob/main/docs/developers/loaders-and-dumpers.rst" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1 id="data-convetsion-loaders-and-dumpers"><span id="data-conversions"></span>Data Convetsion: Loaders and Dumpers<a class="headerlink" href="#data-convetsion-loaders-and-dumpers" title="Permalink to this heading">¶</a></h1>
+<p>The linkml-runtime loaders and dumpers framework provide a way to
+convert different forms of data that conform to a LinkML Schema.</p>
+<p><em>Dumpers</em> dump an in-memory python object to a serialization format</p>
+<p><em>Loaders</em> load a file or string that is in a supported format, translating into
+in-memory python objects.</p>
+<p>All loaders take a target_class parameter that is the python class we
+want to reconstitute. Some loaders and dumpers also take a SchemaView
+as an argument.</p>
+<p>The formats supported are:</p>
+<ul class="simple">
+<li><p>JSON</p></li>
+<li><p>YAML</p></li>
+<li><p>RDF (e.g. Turtle)</p></li>
+<li><p>TSV/CSV</p></li>
+</ul>
+<h2 id="json-conversion">JSON Conversion<a class="headerlink" href="#json-conversion" title="Permalink to this heading">¶</a></h2>
+<p>JSON serialization closely follows the in-memory python serialization</p>
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.dumpers.JSONDumper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml_runtime.dumpers.</span></span><span class="sig-name descname"><span class="pre">JSONDumper</span></span><a class="reference internal" href="../_modules/linkml_runtime/dumpers/json_dumper.html#JSONDumper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.dumpers.JSONDumper" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.dumpers.JSONDumper.dump">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">to_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">contexts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">JsonObj</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">JsonObj</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">None</span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/dumpers/json_dumper.html#JSONDumper.dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.dumpers.JSONDumper.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write element as json to to_file
+:param element: LinkML object to be serialized as YAML
+:param to_file: file to write to
+:param contexts: JSON-LD context(s) in the form of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>file name</p></li>
+<li><p>URL</p></li>
+<li><p>JSON String</p></li>
+<li><p>dict</p></li>
+<li><p>JSON Object</p></li>
+<li><p>A list containing elements of any type named above</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.dumpers.JSONDumper.dumps">
+<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">contexts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">JsonObj</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">JsonObj</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.dumpers.JSONDumper.dumps.inject_type" title="linkml_runtime.dumpers.JSONDumper.dumps.inject_type (Python parameter) — if True (default), add a &#64;type at the top level"><span class="n"><span class="pre">inject_type</span></span></a><span class="o"><span class="pre">=</span></span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">True</span></code></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">str</span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/dumpers/json_dumper.html#JSONDumper.dumps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.dumpers.JSONDumper.dumps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return element as a JSON or a JSON-LD string
+:param element: LinkML object to be emitted
+:param contexts: JSON-LD context(s) in the form of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>file name</p></li>
+<li><p>URL</p></li>
+<li><p>JSON String</p></li>
+<li><p>dict</p></li>
+<li><p>JSON Object</p></li>
+<li><p>A list containing elements of any type named above</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd" id="linkml_runtime.dumpers.JSONDumper.dumps-parameters">Parameters<a class="headerlink" href="#linkml_runtime.dumpers.JSONDumper.dumps-parameters" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="linkml_runtime.dumpers.JSONDumper.dumps.inject_type"><span class="n sig-name">inject_type</span><span class="o">=</span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">True</span></code><a class="headerlink" href="#linkml_runtime.dumpers.JSONDumper.dumps.inject_type" title="Permalink to this definition">¶</a></dt><dd><p>if True (default), add a &#64;type at the top level</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even" id="linkml_runtime.dumpers.JSONDumper.dumps-returns">Returns<a class="headerlink" href="#linkml_runtime.dumpers.JSONDumper.dumps-returns" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-even"><p>JSON Object representing the element</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.JSONLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml_runtime.loaders.</span></span><span class="sig-name descname"><span class="pre">JSONLoader</span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/json_loader.html#JSONLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.JSONLoader" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.JSONLoader.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></span><a class="headerlink" href="#linkml_runtime.loaders.JSONLoader.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as an instance of target_class</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="linkml_runtime.loaders.JSONLoader.load-parameters">Parameters<a class="headerlink" href="#linkml_runtime.loaders.JSONLoader.load-parameters" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt><span class="sig-name descname">source</span></dt><dd><p>source file/text/url to load</p>
+</dd>
+<dt><span class="sig-name descname">target_class</span></dt><dd><p>destination class</p>
+</dd>
+<dt><span class="sig-name descname">base_dir</span></dt><dd><p>scoping directory for source if it is a file or url</p>
+</dd>
+<dt><span class="sig-name descname">metadata</span></dt><dd><p>metadata about the source</p>
+</dd>
+<dt><span class="sig-name descname">_</span></dt><dd><p>extensions</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even" id="linkml_runtime.loaders.JSONLoader.load-returns">Returns<a class="headerlink" href="#linkml_runtime.loaders.JSONLoader.load-returns" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-even"><p>instance of target_class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.JSONLoader.load_any">
+<span class="sig-name descname"><span class="pre">load_any</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">TextIO</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/json_loader.html#JSONLoader.load_any"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.JSONLoader.load_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as an instance of target_class, or list of instances of target_class</p>
+<p>&#64;param source: source file/text/url to load
+&#64;param target_class: destination class
+&#64;param base_dir: scoping directory for source if it is a file or url
+&#64;param metadata: metadata about the source
+&#64;param _: extensions
+&#64;return: instance of target_class</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.JSONLoader.loads">
+<span class="sig-name descname"><span class="pre">loads</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></span><a class="headerlink" href="#linkml_runtime.loaders.JSONLoader.loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as a string
+:param source: source
+:param target_class: destination class
+:param metadata: metadata about the source
+:param _: extensions
+:return: instance of taarget_class</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.JSONLoader.loads_any">
+<span class="sig-name descname"><span class="pre">loads_any</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></span><a class="headerlink" href="#linkml_runtime.loaders.JSONLoader.loads_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as a string as an instance of target_class, or list of instances of target_class
+&#64;param source: source
+&#64;param target_class: destination class
+&#64;param metadata: metadata about the source
+&#64;param _: extensions
+&#64;return: instance of taarget_class</p>
+</dd></dl>
+
+</dd></dl>
+
+<h2 id="yaml-conversion">YAML Conversion<a class="headerlink" href="#yaml-conversion" title="Permalink to this heading">¶</a></h2>
+<p>YAML serialization is essentially the same as JSON</p>
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.dumpers.YAMLDumper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml_runtime.dumpers.</span></span><span class="sig-name descname"><span class="pre">YAMLDumper</span></span><a class="reference internal" href="../_modules/linkml_runtime/dumpers/yaml_dumper.html#YAMLDumper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.dumpers.YAMLDumper" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.dumpers.YAMLDumper.dump">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">to_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">None</span></span></span></span><a class="headerlink" href="#linkml_runtime.dumpers.YAMLDumper.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write element to to_file
+:param element: LinkML object to be dumped
+:param to_file: file to dump to
+:&#64;param _: method specific arguments</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.dumpers.YAMLDumper.dumps">
+<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">str</span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/dumpers/yaml_dumper.html#YAMLDumper.dumps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.dumpers.YAMLDumper.dumps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return element formatted as a YAML string</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.YAMLLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml_runtime.loaders.</span></span><span class="sig-name descname"><span class="pre">YAMLLoader</span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/yaml_loader.html#YAMLLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.YAMLLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Loader that is capable of instantiating LinkML data objects from a YAML file</p>
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.YAMLLoader.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></span><a class="headerlink" href="#linkml_runtime.loaders.YAMLLoader.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as an instance of target_class</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="linkml_runtime.loaders.YAMLLoader.load-parameters">Parameters<a class="headerlink" href="#linkml_runtime.loaders.YAMLLoader.load-parameters" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt><span class="sig-name descname">source</span></dt><dd><p>source file/text/url to load</p>
+</dd>
+<dt><span class="sig-name descname">target_class</span></dt><dd><p>destination class</p>
+</dd>
+<dt><span class="sig-name descname">base_dir</span></dt><dd><p>scoping directory for source if it is a file or url</p>
+</dd>
+<dt><span class="sig-name descname">metadata</span></dt><dd><p>metadata about the source</p>
+</dd>
+<dt><span class="sig-name descname">_</span></dt><dd><p>extensions</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even" id="linkml_runtime.loaders.YAMLLoader.load-returns">Returns<a class="headerlink" href="#linkml_runtime.loaders.YAMLLoader.load-returns" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-even"><p>instance of target_class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.YAMLLoader.load_any">
+<span class="sig-name descname"><span class="pre">load_any</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">TextIO</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/yaml_loader.html#YAMLLoader.load_any"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.YAMLLoader.load_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as an instance of target_class, or list of instances of target_class</p>
+<p>&#64;param source: source file/text/url to load
+&#64;param target_class: destination class
+&#64;param base_dir: scoping directory for source if it is a file or url
+&#64;param metadata: metadata about the source
+&#64;param _: extensions
+&#64;return: instance of target_class</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.YAMLLoader.loads">
+<span class="sig-name descname"><span class="pre">loads</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></span><a class="headerlink" href="#linkml_runtime.loaders.YAMLLoader.loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as a string
+:param source: source
+:param target_class: destination class
+:param metadata: metadata about the source
+:param _: extensions
+:return: instance of taarget_class</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.YAMLLoader.loads_any">
+<span class="sig-name descname"><span class="pre">loads_any</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/yaml_loader.html#YAMLLoader.loads_any"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.YAMLLoader.loads_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as a string
+&#64;param source: source
+&#64;param target_class: destination class
+&#64;param metadata: metadata about the source
+&#64;param _: extensions
+&#64;return: instance of taarget_class</p>
+</dd></dl>
+
+</dd></dl>
+
+<h2 id="rdf-conversion">RDF Conversion<a class="headerlink" href="#rdf-conversion" title="Permalink to this heading">¶</a></h2>
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.RDFLibLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml_runtime.loaders.</span></span><span class="sig-name descname"><span class="pre">RDFLibLoader</span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/rdflib_loader.html#RDFLibLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads objects from rdflib Graphs into the python target_class structure</p>
+<p>Note: this is a more complete replacement for rdf_loader</p>
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.RDFLibLoader.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.loaders.RDFLibLoader.load.source" title="linkml_runtime.loaders.RDFLibLoader.load.source (Python parameter) — RDF data source. Can be a file name, an open handle or an existing graph"><span class="n"><span class="pre">source</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">TextIO</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Graph</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.loaders.RDFLibLoader.load.target_class" title="linkml_runtime.loaders.RDFLibLoader.load.target_class (Python parameter) — LinkML class to load the RDF into"><span class="n"><span class="pre">target_class</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.loaders.RDFLibLoader.load.schemaview" title="linkml_runtime.loaders.RDFLibLoader.load.schemaview (Python parameter) — view over schema to guide instantiation"><span class="n"><span class="pre">schemaview</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="manipulating-schemas.html#linkml_runtime.utils.schemaview.SchemaView" title="linkml_runtime.utils.schemaview.SchemaView (Python class) — A SchemaView provides a virtual schema layered on top of a schema plus its import closure"><span class="pre">SchemaView</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.loaders.RDFLibLoader.load.prefix_map" title="linkml_runtime.loaders.RDFLibLoader.load.prefix_map (Python parameter) — map of prefixes used in data"><span class="n"><span class="pre">prefix_map</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.loaders.RDFLibLoader.load.fmt" title="linkml_runtime.loaders.RDFLibLoader.load.fmt (Python parameter) — format of source if it isn't an existing Graph"><span class="n"><span class="pre">fmt</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="s1">&#39;turtle&#39;</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.loaders.RDFLibLoader.load.metadata" title="linkml_runtime.loaders.RDFLibLoader.load.metadata (Python parameter) — source information. Used by some loaders to record where information came from"><span class="n"><span class="pre">metadata</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><a class="n reference internal" href="#linkml_runtime.loaders.RDFLibLoader.load.kwargs" title="linkml_runtime.loaders.RDFLibLoader.load.kwargs (Python parameter) — additional arguments passed to from_rdf_graph"><span class="n"><span class="pre">kwargs</span></span></a></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/rdflib_loader.html#RDFLibLoader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the RDF in source into the python target_class structure</p>
+<p>The assumption of all loaders is that the source contains exactly one instance of the
+target class. To load from graphs with multiple instances, use from_rdf_graph</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="linkml_runtime.loaders.RDFLibLoader.load-parameters">Parameters<a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load-parameters" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="linkml_runtime.loaders.RDFLibLoader.load.source"><span class="n sig-name">source</span><span class="p">:</span><span class="w">   </span><span class="n"><span class="desctype">str<span class="w">   </span><span class="p">|</span><span class="w">   </span>TextIO<span class="w">   </span><span class="p">|</span><span class="w">   </span>Graph</span></span><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load.source" title="Permalink to this definition">¶</a></dt><dd><p>RDF data source. Can be a file name, an open handle or an existing graph</p>
+</dd>
+<dt id="linkml_runtime.loaders.RDFLibLoader.load.target_class"><span class="n sig-name">target_class</span><span class="p">:</span><span class="w">   </span><span class="n"><span class="desctype">type<span class="p">[</span>YAMLRoot<span class="p">]</span></span></span><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load.target_class" title="Permalink to this definition">¶</a></dt><dd><p>LinkML class to load the RDF into</p>
+</dd>
+<dt id="linkml_runtime.loaders.RDFLibLoader.load.schemaview"><span class="n sig-name">schemaview</span><span class="p">:</span><span class="w">   </span><span class="n"><span class="desctype"><a class="reference internal" href="manipulating-schemas.html#linkml_runtime.utils.schemaview.SchemaView" title="linkml_runtime.utils.schemaview.SchemaView (Python class) — A SchemaView provides a virtual schema layered on top of a schema plus its import closure">SchemaView</a><span class="w">   </span><span class="p">|</span><span class="w">   </span>None</span></span><span class="w">   </span><span class="o">=</span><span class="w">   </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load.schemaview" title="Permalink to this definition">¶</a></dt><dd><p>view over schema to guide instantiation</p>
+</dd>
+<dt id="linkml_runtime.loaders.RDFLibLoader.load.prefix_map"><span class="n sig-name">prefix_map</span><span class="p">:</span><span class="w">   </span><span class="n"><span class="desctype">dict<span class="p">[</span>str<span class="p">,</span><span class="w">   </span>str<span class="p">]</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>None</span></span><span class="w">   </span><span class="o">=</span><span class="w">   </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load.prefix_map" title="Permalink to this definition">¶</a></dt><dd><p>map of prefixes used in data</p>
+</dd>
+<dt id="linkml_runtime.loaders.RDFLibLoader.load.fmt"><span class="n sig-name">fmt</span><span class="p">:</span><span class="w">   </span><span class="n"><span class="desctype">str<span class="w">   </span><span class="p">|</span><span class="w">   </span>None</span></span><span class="w">   </span><span class="o">=</span><span class="w">   </span><code class="code python default_value docutils literal highlight highlight-python"><span class="s1">&#39;turtle&#39;</span></code><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load.fmt" title="Permalink to this definition">¶</a></dt><dd><p>format of source if it isn’t an existing Graph</p>
+</dd>
+<dt id="linkml_runtime.loaders.RDFLibLoader.load.metadata"><span class="n sig-name">metadata</span><span class="p">:</span><span class="w">   </span><span class="n"><span class="desctype">FileInfo<span class="w">   </span><span class="p">|</span><span class="w">   </span>None</span></span><span class="w">   </span><span class="o">=</span><span class="w">   </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load.metadata" title="Permalink to this definition">¶</a></dt><dd><p>source information. Used by some loaders to record where information came from</p>
+</dd>
+<dt id="linkml_runtime.loaders.RDFLibLoader.load.kwargs"><span class="o">**</span><span class="n sig-name">kwargs</span><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load.kwargs" title="Permalink to this definition">¶</a></dt><dd><p>additional arguments passed to from_rdf_graph</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even" id="linkml_runtime.loaders.RDFLibLoader.load-returns">Returns<a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load-returns" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance of target_class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.RDFLibLoader.load_any">
+<span class="sig-name descname"><span class="pre">load_any</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/rdflib_loader.html#RDFLibLoader.load_any"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.load_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as an instance of target_class, or list of instances of target_class</p>
+<p>&#64;param source: source file/text/url to load
+&#64;param target_class: destination class
+&#64;param base_dir: scoping directory for source if it is a file or url
+&#64;param metadata: metadata about the source
+&#64;param _: extensions
+&#64;return: instance of target_class</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.RDFLibLoader.loads">
+<span class="sig-name descname"><span class="pre">loads</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/rdflib_loader.html#RDFLibLoader.loads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as a string
+:param source: source
+:param target_class: destination class
+:param metadata: metadata about the source
+:param _: extensions
+:return: instance of taarget_class</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.RDFLibLoader.loads_any">
+<span class="sig-name descname"><span class="pre">loads_any</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></span><a class="headerlink" href="#linkml_runtime.loaders.RDFLibLoader.loads_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as a string as an instance of target_class, or list of instances of target_class
+&#64;param source: source
+&#64;param target_class: destination class
+&#64;param metadata: metadata about the source
+&#64;param _: extensions
+&#64;return: instance of taarget_class</p>
+</dd></dl>
+
+</dd></dl>
+
+<h2 id="csv-conversion">CSV Conversion<a class="headerlink" href="#csv-conversion" title="Permalink to this heading">¶</a></h2>
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.dumpers.CSVDumper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml_runtime.dumpers.</span></span><span class="sig-name descname"><span class="pre">CSVDumper</span></span><a class="reference internal" href="../_modules/linkml_runtime/dumpers/csv_dumper.html#CSVDumper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.dumpers.CSVDumper" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.dumpers.CSVDumper.dump">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">to_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">None</span></span></span></span><a class="headerlink" href="#linkml_runtime.dumpers.CSVDumper.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write element to to_file
+:param element: LinkML object to be dumped
+:param to_file: file to dump to
+:&#64;param _: method specific arguments</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.dumpers.CSVDumper.dumps">
+<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">YAMLRoot</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">index_slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">SlotDefinitionName</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="../code.html#linkml_runtime.linkml_model.meta.SchemaDefinition" title="linkml_runtime.linkml_model.meta.SchemaDefinition (Python class) — a collection of subset, type, slot and class definitions"><span class="pre">SchemaDefinition</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">schemaview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="manipulating-schemas.html#linkml_runtime.utils.schemaview.SchemaView" title="linkml_runtime.utils.schemaview.SchemaView (Python class) — A SchemaView provides a virtual schema layered on top of a schema plus its import closure"><span class="pre">SchemaView</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">str</span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/dumpers/csv_dumper.html#CSVDumper.dumps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.dumpers.CSVDumper.dumps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return element formatted as CSV lines</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.CSVLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml_runtime.loaders.</span></span><span class="sig-name descname"><span class="pre">CSVLoader</span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/csv_loader.html#CSVLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.CSVLoader" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.CSVLoader.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.loaders.CSVLoader.load.source" title="linkml_runtime.loaders.CSVLoader.load.source (Python parameter) — source file/text/url to load"><span class="n"><span class="pre">source</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#linkml_runtime.loaders.CSVLoader.load.target_class" title="linkml_runtime.loaders.CSVLoader.load.target_class (Python parameter) — destination class"><span class="n"><span class="pre">target_class</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">index_slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">SlotDefinitionName</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="../code.html#linkml_runtime.linkml_model.meta.SchemaDefinition" title="linkml_runtime.linkml_model.meta.SchemaDefinition (Python class) — a collection of subset, type, slot and class definitions"><span class="pre">SchemaDefinition</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">schemaview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="manipulating-schemas.html#linkml_runtime.utils.schemaview.SchemaView" title="linkml_runtime.utils.schemaview.SchemaView (Python class) — A SchemaView provides a virtual schema layered on top of a schema plus its import closure"><span class="pre">SchemaView</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">str</span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/csv_loader.html#CSVLoader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.CSVLoader.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as an instance of target_class</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="linkml_runtime.loaders.CSVLoader.load-parameters">Parameters<a class="headerlink" href="#linkml_runtime.loaders.CSVLoader.load-parameters" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="linkml_runtime.loaders.CSVLoader.load.source"><span class="n sig-name">source</span><span class="p">:</span><span class="w">   </span><span class="n"><span class="desctype">str</span></span><a class="headerlink" href="#linkml_runtime.loaders.CSVLoader.load.source" title="Permalink to this definition">¶</a></dt><dd><p>source file/text/url to load</p>
+</dd>
+<dt id="linkml_runtime.loaders.CSVLoader.load.target_class"><span class="n sig-name">target_class</span><span class="p">:</span><span class="w">   </span><span class="n"><span class="desctype">type<span class="p">[</span>YAMLRoot<span class="p">]</span></span></span><a class="headerlink" href="#linkml_runtime.loaders.CSVLoader.load.target_class" title="Permalink to this definition">¶</a></dt><dd><p>destination class</p>
+</dd>
+<dt><span class="sig-name descname">base_dir</span></dt><dd><p>scoping directory for source if it is a file or url</p>
+</dd>
+<dt><span class="sig-name descname">metadata</span></dt><dd><p>metadata about the source</p>
+</dd>
+<dt><span class="sig-name descname">_</span></dt><dd><p>extensions</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even" id="linkml_runtime.loaders.CSVLoader.load-returns">Returns<a class="headerlink" href="#linkml_runtime.loaders.CSVLoader.load-returns" title="Permalink to this headline">¶</a><span class="colon">:</span></dt>
+<dd class="field-even"><p>instance of target_class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="linkml_runtime.loaders.CSVLoader.load_any">
+<span class="sig-name descname"><span class="pre">load_any</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/csv_loader.html#CSVLoader.load_any"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.CSVLoader.load_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as an instance of target_class, or list of instances of target_class</p>
+<p>&#64;param source: source file/text/url to load
+&#64;param target_class: destination class
+&#64;param base_dir: scoping directory for source if it is a file or url
+&#64;param metadata: metadata about the source
+&#64;param _: extensions
+&#64;return: instance of target_class</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.CSVLoader.loads">
+<span class="sig-name descname"><span class="pre">loads</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">index_slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">SlotDefinitionName</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="../code.html#linkml_runtime.linkml_model.meta.SchemaDefinition" title="linkml_runtime.linkml_model.meta.SchemaDefinition (Python class) — a collection of subset, type, slot and class definitions"><span class="pre">SchemaDefinition</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">schemaview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><a class="reference internal" href="manipulating-schemas.html#linkml_runtime.utils.schemaview.SchemaView" title="linkml_runtime.utils.schemaview.SchemaView (Python class) — A SchemaView provides a virtual schema layered on top of a schema plus its import closure"><span class="pre">SchemaView</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">str</span></span></span></span><a class="reference internal" href="../_modules/linkml_runtime/loaders/csv_loader.html#CSVLoader.loads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml_runtime.loaders.CSVLoader.loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as a string
+:param source: source
+:param target_class: destination class
+:param metadata: metadata about the source
+:param _: extensions
+:return: instance of taarget_class</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="linkml_runtime.loaders.CSVLoader.loads_any">
+<span class="sig-name descname"><span class="pre">loads_any</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">target_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">FileInfo</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="kc">None</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">YAMLRoot</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">YAMLRoot</span><span class="p"><span class="pre">]</span></span></span></span></span><a class="headerlink" href="#linkml_runtime.loaders.CSVLoader.loads_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load source as a string as an instance of target_class, or list of instances of target_class
+&#64;param source: source
+&#64;param target_class: destination class
+&#64;param metadata: metadata about the source
+&#64;param _: extensions
+&#64;return: instance of taarget_class</p>
+</dd></dl>
+
+</dd></dl>
+
+
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="manipulating-schemas.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manipulating Schemas" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Manipulating Schemas
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="using-sql-dbs.html" class="md-footer__link md-footer__link--next" aria-label="Next: Using SQL Databases" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Using SQL Databases
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2021, LinkML Authors.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    5.0.2.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "search.share"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../_static/javascripts/bundle.dc1bded0.min.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,1222 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../_static/onto-favicon.svg">
+    
+    
+      
+        <title>Models - LinkML Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../_static/stylesheets/main.2014a6d7.min.css">
+      
+        
+        <link rel="stylesheet" href="../_static/stylesheets/palette.92c9fe4a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+        <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+        <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-metadata-and-directives" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="LinkML Documentation" class="md-header__button md-logo" aria-label="LinkML Documentation" data-md-component="logo">
+      <img src="../_static/linkml-logo_color.png" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LinkML Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/linkml/linkml/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LinkML
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="LinkML Documentation" class="md-nav__button md-logo" aria-label="LinkML Documentation" data-md-component="logo">
+      <img src="../_static/linkml-logo_color.png" alt="logo">
+    </a>
+    LinkML Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/linkml/linkml/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LinkML
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          <span class="md-ellipsis">CONTENTS:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CONTENTS:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">CONTENTS:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/overview.html" class="md-nav__link">
+        <span title="intro/overview (document)" class="md-ellipsis">Link<wbr>ML at a glance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/install.html" class="md-nav__link">
+        <span title="intro/install (document)" class="md-ellipsis">Quick Install Guide</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/tutorial.html" class="md-nav__link">
+        <span title="intro/tutorial (document)" class="md-ellipsis">Tutorial</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="index.html"><span title="schemas/index (document)" class="md-ellipsis">Link<wbr>ML Schemas</span></a>
+          
+            <label for="__nav_1_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="LinkML Schemas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          <span title="schemas/index (document)" class="md-ellipsis">Link<wbr>ML Schemas</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span title="schemas/models (document)" class="md-ellipsis">Models</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        <span title="schemas/models (document)" class="md-ellipsis">Models</span>
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      <span title="schemas/models (document)" class="md-ellipsis">Models</span>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-metadata-and-directives" class="md-nav__link">
+    <span title="schemas/models:model metadata and directives (reference label)" class="md-ellipsis">Model metadata and directives</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span title="schemas/models:classes (reference label)" class="md-ellipsis">Classes</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span title="schemas/models:slots (reference label)" class="md-ellipsis">Slots</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-attribute-slot" class="md-nav__link">
+    <span title="schemas/models:the attribute slot (reference label)" class="md-ellipsis">The Attribute slot</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span title="schemas/models:types (reference label)" class="md-ellipsis">Types</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    <span title="schemas/models:enums (reference label)" class="md-ellipsis">Enums</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span title="schemas/models:subsets (reference label)" class="md-ellipsis">Subsets</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metamodel" class="md-nav__link">
+    <span title="schemas/models:metamodel (reference label)" class="md-ellipsis">Metamodel</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="metadata.html" class="md-nav__link">
+        <span title="schemas/metadata (document)" class="md-ellipsis">Schema Element Metadata</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="inheritance.html" class="md-nav__link">
+        <span title="schemas/inheritance (document)" class="md-ellipsis">Inheritance</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slots.html" class="md-nav__link">
+        <span title="schemas/slots (document)" class="md-ellipsis">Slots</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uris-and-mappings.html" class="md-nav__link">
+        <span title="schemas/uris-and-mappings (document)" class="md-ellipsis">URIs and Mappings</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="generators.html" class="md-nav__link">
+        <span title="schemas/generators (document)" class="md-ellipsis">Generators</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="inlining.html" class="md-nav__link">
+        <span title="schemas/inlining (document)" class="md-ellipsis">Inlining objects</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="constraints.html" class="md-nav__link">
+        <span title="schemas/constraints (document)" class="md-ellipsis">Adding constraints and rules</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="imports.html" class="md-nav__link">
+        <span title="schemas/imports (document)" class="md-ellipsis">Imports</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="experimental.html" class="md-nav__link">
+        <span title="schemas/experimental (document)" class="md-ellipsis">Experimental features</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/index.html" class="md-nav__link">
+        <span title="data/index (document)" class="md-ellipsis">Working with Data</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generators/index.html" class="md-nav__link">
+        <span title="generators/index (document)" class="md-ellipsis">Generators</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples.html" class="md-nav__link">
+        <span title="examples (document)" class="md-ellipsis">Examples of use</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecosystem.html" class="md-nav__link">
+        <span title="ecosystem (document)" class="md-ellipsis">The Link<wbr>ML Ecosystem</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../specifications/linkml-spec.html" class="md-nav__link">
+        <span title="specifications/linkml-spec (document)" class="md-ellipsis">Link<wbr>ML specification</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/contributing.html" class="md-nav__link">
+        <span title="contributing/contributing (document)" class="md-ellipsis">Contribution Guidelines</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/index.html" class="md-nav__link">
+        <span title="faq/index (document)" class="md-ellipsis">FAQ</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          <span class="md-ellipsis">DEVELOPERS GUIDE:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DEVELOPERS GUIDE:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">DEVELOPERS GUIDE:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developers/index.html" class="md-nav__link">
+        <span title="developers/index (document)" class="md-ellipsis">Developers guide</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code.html" class="md-nav__link">
+        <span title="code (document)" class="md-ellipsis">Code</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      <span title="schemas/models (document)" class="md-ellipsis">Models</span>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-metadata-and-directives" class="md-nav__link">
+    <span title="schemas/models:model metadata and directives (reference label)" class="md-ellipsis">Model metadata and directives</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span title="schemas/models:classes (reference label)" class="md-ellipsis">Classes</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span title="schemas/models:slots (reference label)" class="md-ellipsis">Slots</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-attribute-slot" class="md-nav__link">
+    <span title="schemas/models:the attribute slot (reference label)" class="md-ellipsis">The Attribute slot</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span title="schemas/models:types (reference label)" class="md-ellipsis">Types</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    <span title="schemas/models:enums (reference label)" class="md-ellipsis">Enums</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span title="schemas/models:subsets (reference label)" class="md-ellipsis">Subsets</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metamodel" class="md-nav__link">
+    <span title="schemas/models:metamodel (reference label)" class="md-ellipsis">Metamodel</span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset" role="main">
+                
+  <a href="https://github.com/linkml/linkml/blob/main/docs/schemas/models.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1 id="models">Models<a class="headerlink" href="#models" title="Permalink to this heading">¶</a></h1>
+<p>A LinkML model describes the structure of your data. Your data can be
+expressed as JSON or YAML files (the default form for LinkML), or as
+CSVs, or as a relational database, or even a triplestore or graph
+database.</p>
+<p>LinkML models are authored as YAML files. These files can be understood as data files that instantiate <a class="reference external" href="https://w3id.org/linkml/SchemaDefinition">SchemaDefinitions</a> in the LinkML metamodel.</p>
+<p>The overall layout of a schema yaml file is roughly as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/my-schema</span><span class="w"></span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_schema</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">&lt;OTHER METADATA HERE&gt;</span><span class="w"></span>
+
+<span class="c1"># classes are the main organization until for data;</span><span class="w"></span>
+<span class="c1"># all data records instantiate a class</span><span class="w"></span>
+<span class="nt">classes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Person</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Organization</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+
+<span class="c1"># data fields get their own section</span><span class="w"></span>
+<span class="nt">slots</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">  </span><span class="nt">email</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">  </span><span class="nt">age</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+
+<span class="c1"># optional: schema type extensions</span><span class="w"></span>
+<span class="nt">types</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">AgeType</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+
+<span class="c1"># enumerations</span><span class="w"></span>
+<span class="nt">enums</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">GenderType</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>To illustrate we will use an example schema for modeling people and attributes about people. The full schema can be found in this repo at <a class="reference external" href="https://github.com/linkml/linkml/tree/main/examples/PersonSchema">examples/PersonSchema</a></p>
+<h2 id="model-metadata-and-directives">Model metadata and directives<a class="headerlink" href="#model-metadata-and-directives" title="Permalink to this heading">¶</a></h2>
+<p>A LinkML model/schema may have various pieces of metadata associated with it, for example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/examples/personinfo</span><span class="w"></span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">personinfo</span><span class="w"></span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span><span class="w"></span>
+<span class="w">  </span><span class="no">Information about people, based on [schema.org](http://schema.org)</span><span class="w"></span>
+<span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://creativecommons.org/publicdomain/zero/1.0/</span><span class="w"></span>
+<span class="nt">default_curi_maps</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semweb_context</span><span class="w"></span>
+<span class="nt">imports</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linkml:types</span><span class="w"></span>
+<span class="nt">prefixes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">personinfo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/examples/personinfo/</span><span class="w"></span>
+<span class="w">  </span><span class="nt">linkml</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/</span><span class="w"></span>
+<span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://schema.org/</span><span class="w"></span>
+<span class="w">  </span><span class="nt">rdfs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.w3.org/2000/01/rdf-schema#</span><span class="w"></span>
+<span class="w">  </span><span class="nt">prov</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.w3.org/ns/prov#</span><span class="w"></span>
+<span class="nt">default_prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">personinfo</span><span class="w"></span>
+<span class="nt">default_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+</code></pre></div>
+</div>
+<ul class="simple">
+<li><p>names, identifiers, and metadata</p>
+<ul>
+<li><p><a class="reference external" href="https://w3id.org/linkml/id">id</a> – the unique identifier for the schema, as a IRI</p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/name">name</a> – the schema name. Use only alphanumeric characters, underscores, and dashes</p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/description">description</a> – a summary of the schema. Can include markdown formatting</p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/license">license</a> – CC0 recommended</p></li>
+</ul>
+</li>
+<li><p>modules</p>
+<ul>
+<li><p><a class="reference external" href="https://w3id.org/linkml/imports">imports</a> – allows for modular development. See <a class="reference internal" href="imports.html"><span class="doc std std-doc">imports</span></a></p></li>
+</ul>
+</li>
+<li><p>prefix management</p>
+<ul>
+<li><p><a class="reference external" href="https://w3id.org/linkml/prefixes">prefixes</a> – A map of prefixes. See <span class="xref myst">prefixes</span></p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/default_prefix">default_prefixes</a> – The prefix used for all elements in this schema</p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/default_curi_maps">default_curi_maps</a> – prefix maps from prefixcommons</p></li>
+</ul>
+</li>
+<li><p>other</p>
+<ul>
+<li><p><a class="reference external" href="https://w3id.org/linkml/default_range">default_range</a> – The default range for all slots</p></li>
+</ul>
+</li>
+</ul>
+<p>See also <a class="reference internal" href="uris-and-mappings.html"><span class="doc std std-doc">uris-and-mappings</span></a></p>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<p>Classes provide templates for organizing data. Data objects should
+instantiate classes in the schema. Each class has a set of <em>slots</em>
+(aka fields, attributes) that are applicable to it.</p>
+<p>Classes operate in a very similar way to classes in a programming
+language like Python or Java. They are analogous to tables in
+relational databases.</p>
+<p>Classes are defined in a <code class="docutils literal notranslate"><span class="pre">classes</span></code> block at the top level of your YAML, where the key is the class name:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">classes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Person</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NamedThing</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">      </span><span class="no">A person (alive, dead, undead, or fictional).</span><span class="w"></span>
+<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Person</span><span class="w"></span>
+<span class="w">    </span><span class="nt">mixins</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HasAliases</span><span class="w"></span>
+<span class="w">    </span><span class="nt">slots</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">primary_email</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">birth_date</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">age_in_years</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gender</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_employment_history</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_familial_relationships</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_medical_history</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>See <a class="reference external" href="https://w3id.org/linkml/ClassDefinition">ClassDefinition</a> for a full list of allowed slots</p>
+<p><strong>Note</strong>: class names can be normal natural language noun phrases
+encompassing characters such as spaces. However, when converted to
+external representations, different rules will be applied, and
+typically the exported name is in PascalCase. So for example, you
+could call your class <code class="docutils literal notranslate"><span class="pre">named</span> <span class="pre">thing</span></code>, but the URI for the class would
+be <code class="docutils literal notranslate"><span class="pre">myprefix:NamedThing</span></code></p>
+<p>Because LinkML is described in LinkML, your schema is an
+instantiation of the LinkML metamodel, and schema elements have a list
+of allowed slots. So for example, <code class="docutils literal notranslate"><span class="pre">is_a</span></code>, <code class="docutils literal notranslate"><span class="pre">description</span></code>, and <code class="docutils literal notranslate"><span class="pre">slots</span></code>
+are all slots that are applicable to instances of
+ClassDefinitions.</p>
+<p>This is a little meta at first but you get used to it!</p>
+<h2 id="slots">Slots<a class="headerlink" href="#slots" title="Permalink to this heading">¶</a></h2>
+<p>Slots (aka attributes, fields, columns, properties) can be associated
+with classes to specify what fields instances of that class can have</p>
+<p>For example, in the schema above, instances of Person classes can have
+values for primary email, birthdate, etc.</p>
+<p>In LinkML slots are “first class” and are defined independently of
+classes, and a slot can be used in any number of classes.</p>
+<p>Slots are defined in a <code class="docutils literal notranslate"><span class="pre">slots</span></code> block at the top level of your YAML:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">slots</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:identifier</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:name</span><span class="w"></span>
+<span class="w">  </span><span class="nt">gender</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:gender</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gender_enum</span><span class="w"></span>
+<span class="w">  </span><span class="nt">age_in_years</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="w">    </span><span class="nt">maximum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">999</span><span class="w"></span>
+<span class="w">  </span><span class="nt">has_employment_history</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EmploymentEvent</span><span class="w"></span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">  </span><span class="nt">current_address</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Address</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>You can then re-use these in your class definitions. For example, if your <code class="docutils literal notranslate"><span class="pre">Person</span></code> class has a <code class="docutils literal notranslate"><span class="pre">name</span></code> slot, just list it:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">classes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Person</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">slots</span><span class="p p-Indicator">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>Note that LinkML models are “closed” by default. If a slot is not listed for a class, then data that includes an unlisted slot will be invalid.</p>
+<p>Slots are <a class="reference internal" href="inheritance.html"><span class="doc std std-doc">inherited</span></a>, so for example if <code class="docutils literal notranslate"><span class="pre">name</span></code> is listed
+as an allowed slot for <code class="docutils literal notranslate"><span class="pre">NamedThing</span></code>, and <code class="docutils literal notranslate"><span class="pre">Person</span></code> inherits from
+NamedThing, then <code class="docutils literal notranslate"><span class="pre">name</span></code> will be valid for Person. There is no need to
+re-declare</p>
+<p>See <a class="reference external" href="https://w3id.org/linkml/SlotDefinition">SlotDefinition</a> for a full list of which metamodel slots can be applied to slots.</p>
+<h3 id="the-attribute-slot">The Attribute slot<a class="headerlink" href="#the-attribute-slot" title="Permalink to this heading">¶</a></h3>
+<p>As a convenience feature, you can specify slot definitions directly within a class using the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> slot:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">classes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Person</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NamedThing</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">      </span><span class="no">A person (alive, dead, undead, or fictional).</span><span class="w"></span>
+<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Person</span><span class="w"></span>
+<span class="w">    </span><span class="nt">mixins</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HasAliases</span><span class="w"></span>
+<span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">gender</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:gender</span><span class="w"></span>
+<span class="w">        </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gender_enum</span><span class="w"></span>
+<span class="w">      </span><span class="nt">age_in_years</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span><span class="w"></span>
+<span class="w">        </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="w">        </span><span class="nt">maximum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">999</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../faq/modeling.html#when-should-i-use-attributes-vs-slots"><span class="std std-ref">FAQ: attributes vs slots</span></a></p></li>
+</ul>
+<h2 id="types">Types<a class="headerlink" href="#types" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference external" href="https://w3id.org/linkml/TypeDefinition">TypeDefinition</a> in the metamodel.</p>
+<p>Types in LinkML are scalar data values such as strings, integers, floats, and so on. LinkML comes with its own set of types, and these can be extended.</p>
+<p>For example, you may represent chemical formulae as strings in your model, but if you provide an explicit type that maps to string, it makes the intended meaning clearer, and different applications can operate on these differently:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">chemical formula value</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xsd:string</span><span class="w"></span>
+<span class="w">    </span><span class="nt">base</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A chemical formula</span><span class="w"></span>
+</code></pre></div>
+</div>
+<h2 id="enums">Enums<a class="headerlink" href="#enums" title="Permalink to this heading">¶</a></h2>
+<p>The core enumeration model is the same as for familiar systems, where there is a set of allowed string values:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">enums</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">FamilialRelationshipType</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">permissible_values</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">SIBLING_OF</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">PARENT_OF</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">CHILD_OF</span><span class="p">:</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>You can also make your enums into a ticher controlled vocabulary, with definitions built in:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">enums</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">FamilialRelationshipType</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">permissible_values</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">SIBLING OF</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A family relationship where the two members have a parent on common</span><span class="w"></span>
+<span class="w">      </span><span class="nt">PARENT OF</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A family relationship between offspring and their parent</span><span class="w"></span>
+<span class="w">      </span><span class="nt">CHILD OF</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inverse of the PARENT_OF relationship</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>(note you can include spaces in your enums if you like)</p>
+<p>LinkML goes beyond most frameworks and allows your enums to be backed by external ontologies. For example, this enum is backed by <a class="reference external" href="http://obofoundry.org/ontology/gsso">GSSO</a></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><code><span class="nt">prefixes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">GGSO</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.obolibrary.org/obo/GSSO_</span><span class="w"></span>
+
+<span class="nt">enums</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">GenderType</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">permissible_values</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">nonbinary man</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSSO:009254</span><span class="w"></span>
+<span class="w">      </span><span class="nt">nonbinary woman</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSSO:009253</span><span class="w"></span>
+<span class="w">      </span><span class="nt">transgender woman</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSSO:000384</span><span class="w"></span>
+<span class="w">      </span><span class="nt">transgender man</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSSO:000372</span><span class="w"></span>
+<span class="w">      </span><span class="nt">cisgender man</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSSO:000371</span><span class="w"></span>
+<span class="w">      </span><span class="nt">cisgender woman</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSSO:000385</span><span class="w"></span>
+</code></pre></div>
+</div>
+<h2 id="subsets">Subsets<a class="headerlink" href="#subsets" title="Permalink to this heading">¶</a></h2>
+<p>Elements of a schema can be partitioned into named <a class="reference external" href="https://w3id.org/linkml/SubsetDefinition">subsets</a>. These have no semantic meaning, but they can be useful for tagging parts of a schema for different purposes.</p>
+<h2 id="metamodel">Metamodel<a class="headerlink" href="#metamodel" title="Permalink to this heading">¶</a></h2>
+<p>The LinkML <em>metamodel</em> describes LinkML itself. All LinkML schemas
+instantiate the <a class="reference external" href="https://w3id.org/linkml/SchemaDefinition">subsets</a>
+class in the metamodel, and all elements of a schema instantiate other
+metamodel classes.</p>
+<p>All metamodel elements are in the <a class="reference external" href="https://w3id.org/linkml/">https://w3id.org/linkml/</a> namespace, e.g:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://w3id.org/linkml/SchemaDefinition">https://w3id.org/linkml/SchemaDefinition</a></p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/ClassDefinition">https://w3id.org/linkml/ClassDefinition</a></p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/SlotDefinition">https://w3id.org/linkml/SlotDefinition</a></p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/EnumDefinition">https://w3id.org/linkml/EnumDefinition</a></p></li>
+<li><p><a class="reference external" href="https://w3id.org/linkml/TypeDefinition">https://w3id.org/linkml/TypeDefinition</a></p></li>
+</ul>
+<p><img alt="metamodel" src="../_images/metamodel.png" /></p>
+
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: LinkML Schemas" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              LinkML Schemas
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="metadata.html" class="md-footer__link md-footer__link--next" aria-label="Next: Schema Element Metadata" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Schema Element Metadata
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2021, LinkML Authors.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    5.0.2.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "search.share"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../_static/javascripts/bundle.dc1bded0.min.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/design-tabs.js"></script>
+    
+  </body>
+</html>
